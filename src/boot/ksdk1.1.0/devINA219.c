@@ -242,6 +242,8 @@ currentLoop(int number)
 
 	WarpStatus  i2cconfig;
 
+	WarpStatus i2cReadStatus
+
 	i2cconfig = configureSensorINA219(0x5000, 0x20);
 
 	// Calibrating
@@ -249,7 +251,7 @@ currentLoop(int number)
 
 	int i;
 
-	for (i = 0; a < number;  a += 1)
+	for (i = 0; i < number;  i += 1)
 	{
 		i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Current, 2 );
 		uint16_t current_MSB = deviceINA219State.i2cBuffer[0];
