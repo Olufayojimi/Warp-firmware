@@ -242,7 +242,7 @@ currentLoop(int number)
 
 	WarpStatus  i2cconfig;
 
-	WarpStatus i2cReadStatus
+	WarpStatus i2cReadStatus;
 
 	i2cconfig = configureSensorINA219(0x5000, 0x20);
 
