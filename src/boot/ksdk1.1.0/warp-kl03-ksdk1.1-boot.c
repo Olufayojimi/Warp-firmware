@@ -1369,7 +1369,7 @@ main(void)
 
 	// Loop 1000 times for current data
 
-	currentLoop(1000);
+	//currentLoop(1000);
 
 	while (1)
 	{
@@ -2640,7 +2640,7 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 
 	if (printHeadersAndCalibration)
 	{
-		SEGGER_RTT_WriteString(0, "Measurement number, RTC->TSR, RTC->TPR,");
+		//SEGGER_RTT_WriteString(0, "Measurement number, RTC->TSR, RTC->TPR,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		#ifdef WARP_BUILD_ENABLE_DEVAMG8834
@@ -2655,10 +2655,10 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		#endif
 
-		#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
-		SEGGER_RTT_WriteString(0, " MMA8451 x, MMA8451 y, MMA8451 z,");
-		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		#endif
+		//#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
+		//SEGGER_RTT_WriteString(0, " MMA8451 x, MMA8451 y, MMA8451 z,");
+		//OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+		//#endif
 		#ifdef WARP_BUILD_ENABLE_DEVMAG3110
 		SEGGER_RTT_WriteString(0, " MAG3110 x, MAG3110 y, MAG3110 z, MAG3110 Temp,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
@@ -2687,7 +2687,7 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		SEGGER_RTT_WriteString(0, " HDC1000 Temp, HDC1000 Hum,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		#endif
-		SEGGER_RTT_WriteString(0, " RTC->TSR, RTC->TPR, # Config Errors");
+		//SEGGER_RTT_WriteString(0, " RTC->TSR, RTC->TPR, # Config Errors");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		SEGGER_RTT_WriteString(0, "\n\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
