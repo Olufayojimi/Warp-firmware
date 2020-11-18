@@ -156,9 +156,9 @@ printSensorDataINA219(bool hexModeFlag)
 	//int16_t power_raw;
 	WarpStatus	i2cReadStatus;
 	WarpStatus  i2cWriteStatus;
-	//WarpStatus  i2cconfig;
+	WarpStatus  i2cconfig;
 
-	//i2cconfig = configureSensorINA219(0x5000, 0x20);
+	i2cconfig = configureSensorINA219(0x5000, 0x20);
 
 	// Calibrating
 	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x50, 0x00, 0x00);
@@ -233,3 +233,20 @@ printSensorDataINA219(bool hexModeFlag)
 		SEGGER_RTT_printf(0, "shunt_voltage: %d, current: %d, bus_voltage: %d, power: %d,", shunt_voltage_raw, current_raw, bus_voltage_raw, power_raw);
 	}
 }
+
+/*
+void
+currentLoop(int number)
+{
+	WarpStatus  i2cWriteStatus;
+
+	// Calibrating
+	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x50, 0x00, 0x00);
+
+	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Current, 2 );
+	uint16_t current_MSB = deviceINA219State.i2cBuffer[0];
+	uint16_t current_LSB = deviceINA219State.i2cBuffer[1];
+	int16_t current_raw = ((current_MSB & 0xFF) << 6) | (current_LSB >> 2);
+
+}
+*/
