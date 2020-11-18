@@ -231,7 +231,7 @@ printSensorDataINA219(bool hexModeFlag)
 		}
 		*/
 		//SEGGER_RTT_printf(0, "shunt_voltage: %d, current: %d, bus_voltage: %d, power: %d,", shunt_voltage_raw, current_raw, bus_voltage_raw, power_raw);
-		SEGGER_RTT_printf(0, "%d", current_raw);
+		SEGGER_RTT_printf(0, "%d\n", current_raw);
 	}
 }
 
