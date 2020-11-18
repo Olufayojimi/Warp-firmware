@@ -1366,8 +1366,11 @@ main(void)
 #endif
 
 	int output_green = devSSD1331init();
+
 	// Loop 1000 times for current data
-	
+
+	currentLoop(1000);
+
 	while (1)
 	{
 		/*
