@@ -205,7 +205,7 @@ printSensorDataINA219(bool hexModeFlag)
 	uint16_t current_MSB = deviceINA219State.i2cBuffer[0];
 	uint16_t current_LSB = deviceINA219State.i2cBuffer[1];
 	int16_t current_raw = ((current_MSB & 0xFF) << 6) | (current_LSB >> 2);
-	double current = current_raw/ina219_currentDivider_mA;
+	float current = (float)current_raw / ina219_currentDivider_mA;
 	
 	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Power, 2 /* numberOfBytes */);
 	uint16_t power_MSB = deviceINA219State.i2cBuffer[0];
@@ -231,7 +231,7 @@ printSensorDataINA219(bool hexModeFlag)
 		}
 		*/
 		//SEGGER_RTT_printf(0, "shunt_voltage: %d, current: %d, bus_voltage: %d, power: %d,", shunt_voltage_raw, current_raw, bus_voltage_raw, power_raw);
-		SEGGER_RTT_printf(0, "%lf\n", current);
+		SEGGER_RTT_printf(0, "%f\n", current);
 	}
 }
 
