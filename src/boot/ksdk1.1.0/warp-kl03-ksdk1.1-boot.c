@@ -2521,8 +2521,8 @@ main(void)
 			{
 				bool hexModeFlag = 1;
 				#ifdef WARP_BUILD_ENABLE_DEVINA219
-				
-				for (int i = 0; i < 1000; ++i)
+				enableI2Cpins(menuI2cPullupValue);
+				for (int i = 0; i < 1000; i++)
 				{
 					printSensorDataINA219(hexModeFlag);
 
