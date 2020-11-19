@@ -1480,6 +1480,9 @@ main(void)
 		SEGGER_RTT_WriteString(0, "\r- 'z': dump all sensors data.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
+		SEGGER_RTT_WriteString(0, "\r- '/': Print 1000 current sensor readings.\n");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
 		SEGGER_RTT_WriteString(0, "\rEnter selection> ");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		key = SEGGER_RTT_WaitKey();
@@ -2511,6 +2514,20 @@ main(void)
 				 */
 				disableI2Cpins();
 
+				break;
+			}
+
+			case '/':
+			{
+				bool hexModeFlag = 1;
+				#ifdef WARP_BUILD_ENABLE_DEVINA219
+				
+				for (int i = 0; i < 1000; ++i)
+				{
+					printSensorDataINA219(hexModeFlag);
+
+				}
+				#endif
 				break;
 			}
 
