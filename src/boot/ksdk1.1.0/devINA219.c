@@ -81,10 +81,10 @@ configureSensorINA219(uint16_t payloadConfiguration, uint16_t menuI2cPullupValue
 {
 	WarpStatus	i2cWriteStatus2;
 
-	i2cWriteStatus2 = writeSensorRegisterINA219(kWarpSensorConfigurationRegisterINA219Configuration,
-							0x38, /* 0x01 */
-							0x1F,  /* 0x9F */
-							menuI2cPullupValue);
+	//i2cWriteStatus2 = writeSensorRegisterINA219(kWarpSensorConfigurationRegisterINA219Configuration,
+	//						0x01, /* 0x01 */
+	//						0x9F,  /* 0x9F */
+	//						menuI2cPullupValue);
 
 	//i2cWriteStatus1 = writeSensorRegisterINA219(kWarpSensorConfigurationRegisterINA219Configuration  /* register address F_SETUP */,
 	//						0x01 /* payload: Disable FIFO */,
@@ -161,7 +161,7 @@ printSensorDataINA219(bool hexModeFlag)
 	i2cconfig = configureSensorINA219(0x5000, 0x20);
 
 	// Calibrating
-	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x10, 0x00, 0x00);
+	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x50, 0x00, 0x00);
 	//i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x00, 0x00);
 
 	if (i2cWriteStatus != kWarpStatusOK)
@@ -205,7 +205,7 @@ printSensorDataINA219(bool hexModeFlag)
 	uint16_t current_MSB = deviceINA219State.i2cBuffer[0];
 	uint16_t current_LSB = deviceINA219State.i2cBuffer[1];
 	int16_t current_raw = ((current_MSB & 0xFF) << 6) | (current_LSB >> 2);
-	float current = (float)current_raw / ina219_currentDivider_mA;
+	//float current = (float)current_raw / ina219_currentDivider_mA;
 	
 	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Power, 2 /* numberOfBytes */);
 	uint16_t power_MSB = deviceINA219State.i2cBuffer[0];
@@ -231,7 +231,7 @@ printSensorDataINA219(bool hexModeFlag)
 		}
 		*/
 		//SEGGER_RTT_printf(0, "shunt_voltage: %d, current: %d, bus_voltage: %d, power: %d,", shunt_voltage_raw, current_raw, bus_voltage_raw, power_raw);
-		SEGGER_RTT_printf(0, "%f\n", current);
+		SEGGER_RTT_printf(0, "%d\n", current_raw);
 	}
 }
 
