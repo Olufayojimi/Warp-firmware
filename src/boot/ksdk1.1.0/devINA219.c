@@ -162,7 +162,7 @@ printSensorDataINA219(bool hexModeFlag)
 
 	// Calibrating
 	//i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x50, 0x00, 0x00);
-	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x01, 0x99);
+	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x01, 0x99, 0x00);
 
 	if (i2cWriteStatus != kWarpStatusOK)
 	{
