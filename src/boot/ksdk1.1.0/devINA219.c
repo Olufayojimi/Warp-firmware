@@ -31,7 +31,7 @@ initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStateP
 }
 
 WarpStatus
-writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload, uint8_t payload1, uint16_t menuI2cPullupValue)
+writeSensorRegisterINA219(uint8_t deviceRegister, uint16_t payload, uint16_t menuI2cPullupValue)
 {
 	uint8_t		payloadByte[2];
 	uint8_t		commandByte[1];
@@ -58,8 +58,8 @@ writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload, uint8_t paylo
 	};
 
 	commandByte[0] = deviceRegister;
-	payloadByte[0] = payload;
-	payloadByte[1] = payload1;
+	payloadByte[1] = payload & 0xFF;
+	payloadByte[0] = (payload >> 8);
 	status = I2C_DRV_MasterSendDataBlocking(
 							0 /* I2C instance */,
 							&slave,
@@ -161,7 +161,7 @@ printSensorDataINA219(bool hexModeFlag)
 	i2cconfig = configureSensorINA219(0x5000, 0x20);
 
 	// Calibrating
-	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x10, 0x00, 0x00);
+	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x8000, 0x00);
 	//i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x01, 0x99, 0x00);
 
 	if (i2cWriteStatus != kWarpStatusOK)
