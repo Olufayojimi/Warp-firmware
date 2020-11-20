@@ -2672,10 +2672,10 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		#endif
 
-		//#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
-		//SEGGER_RTT_WriteString(0, " MMA8451 x, MMA8451 y, MMA8451 z,");
-		//OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		//#endif
+		#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
+		SEGGER_RTT_WriteString(0, " MMA8451 x, MMA8451 y, MMA8451 z,");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+		#endif
 		#ifdef WARP_BUILD_ENABLE_DEVMAG3110
 		SEGGER_RTT_WriteString(0, " MAG3110 x, MAG3110 y, MAG3110 z, MAG3110 Temp,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
@@ -2704,7 +2704,7 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		SEGGER_RTT_WriteString(0, " HDC1000 Temp, HDC1000 Hum,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		#endif
-		//SEGGER_RTT_WriteString(0, " RTC->TSR, RTC->TPR, # Config Errors");
+		SEGGER_RTT_WriteString(0, " RTC->TSR, RTC->TPR, # Config Errors");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		SEGGER_RTT_WriteString(0, "\n\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
@@ -2713,20 +2713,20 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 
 	while(1)
 	{
-		/*
+		
 		#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 		SEGGER_RTT_printf(0, "%u, %d, %d,", readingCount, RTC->TSR, RTC->TPR);
 		#endif
-		*/
+		
 
 		#ifdef WARP_BUILD_ENABLE_DEVAMG8834
 		printSensorDataAMG8834(hexModeFlag);
 		#endif
-		/*
+		
 		#ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 		printSensorDataMMA8451Q(hexModeFlag);
 		#endif
-		*/
+		
 		#ifdef WARP_BUILD_ENABLE_DEVINA219
 		printSensorDataINA219(hexModeFlag);
 		#endif
@@ -2751,11 +2751,11 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		printSensorDataHDC1000(hexModeFlag);
 		#endif
 
-		/*
+		
 		#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 		SEGGER_RTT_printf(0, " %d, %d, %d\n", RTC->TSR, RTC->TPR, numberOfConfigErrors);
 		#endif
-		*/
+		
 
 
 		if (menuDelayBetweenEachRun > 0)
@@ -2763,7 +2763,7 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 			OSA_TimeDelay(menuDelayBetweenEachRun);
 		}
 
-		//readingCount++;
+		readingCount++;
 	}
 }
 
