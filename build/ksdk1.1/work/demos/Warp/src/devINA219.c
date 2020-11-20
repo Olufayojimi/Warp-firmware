@@ -203,7 +203,7 @@ printSensorDataINA219(bool hexModeFlag)
 	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Current, 2 /* numberOfBytes */);
 	uint16_t current_MSB = deviceINA219State.i2cBuffer[0];
 	uint16_t current_LSB = deviceINA219State.i2cBuffer[1];
-	int16_t current_raw = ((current_MSB & 0xFF) << 6) | (current_LSB >> 2);
+	int16_t current_raw = ((current_MSB & 0xFF) << 8) | (current_LSB & 0xFF);
 	//float current = (float)current_raw / ina219_currentDivider_mA;
 	
 	i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Power, 2 /* numberOfBytes */);
