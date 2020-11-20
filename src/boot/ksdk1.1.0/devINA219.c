@@ -236,33 +236,3 @@ printSensorDataINA219(bool hexModeFlag)
 }
 
 
-void
-currentLoop(int number)
-{
-	WarpStatus  i2cWriteStatus;
-
-	WarpStatus  i2cconfig;
-
-	WarpStatus i2cReadStatus;
-
-	i2cconfig = configureSensorINA219(0x5000, 0x20);
-
-	// Calibrating
-	i2cWriteStatus = writeSensorRegisterINA219(0x05, 0x50, 0x00, 0x00);
-
-	int i;
-
-	for (i = 0; i < number;  i += 1)
-	{
-		i2cReadStatus = readSensorRegisterINA219(kWarpSensorOutputRegisterINA219Current, 2 );
-		uint16_t current_MSB = deviceINA219State.i2cBuffer[0];
-		uint16_t current_LSB = deviceINA219State.i2cBuffer[1];
-		int16_t current_raw = ((current_MSB & 0xFF) << 6) | (current_LSB >> 2);
-
-		SEGGER_RTT_printf(0, "%d", current_raw);
-	}
-
-	
-
-}
-

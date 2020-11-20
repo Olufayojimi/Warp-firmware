@@ -13,4 +13,4 @@ WarpStatus	readSensorSignalINA219(WarpTypeMask signal,
 					WarpSignalNoise noise);
 void		printSensorDataINA219(bool hexModeFlag);
 
-void currentLoop(int number);
+
