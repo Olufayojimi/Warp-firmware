@@ -11,8 +11,8 @@
 
 enum
 {
-	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOA, 3),
-	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOA, 4),
+	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 3),
+	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 4),
 };
 
 int
