@@ -56,6 +56,6 @@ takeReading()
 	return distance;
 	*/
 	SEGGER_RTT_printf(0, "%d, %d\n", a, b);
-	return 1
+	return 1;
 
 }
