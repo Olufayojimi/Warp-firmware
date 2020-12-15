@@ -35,6 +35,14 @@ takeReading()
 
 	int distance = counter * 0.01715;
 
-	SEGGER_RTT_printf(0, "%d\n", distance);
+	if (counter > 0)
+	{
+		SEGGER_RTT_printf(0, "%d\n", distance);
+	} 
+	else
+	{
+		SEGGER_RTT_printf(0, "The code did not work %d\n", 0);
+	}
+
 	return distance;
 }
