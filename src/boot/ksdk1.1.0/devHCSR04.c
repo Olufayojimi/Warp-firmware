@@ -29,12 +29,12 @@ takeReading()
 	{
 		OSA_TimeDelay(1);
 		counter += 1;
-		continue
+		continue;
 	}
 	//stop timer
 
 	int distance = counter * 0.01715;
 
 	SEGGER_RTT_printf(0, "%d\n", distance);
-	return distance
+	return distance;
 }
