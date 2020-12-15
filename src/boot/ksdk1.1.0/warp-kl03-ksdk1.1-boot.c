@@ -73,6 +73,7 @@
 #	include "devAMG8834.h"
 #	include "devSSD1331.h"
 #	include "devINA219.h"
+#	include "devHCSR04.h"
 //#	include "devMAX11300.h"
 //#include "devTCS34725.h"
 //#include "devSI4705.h"
@@ -87,6 +88,7 @@
 #else
 #	include "devMMA8451Q.h"
 #	include "devINA219.h"
+#	include "devHCSR04.h"
 #endif
 
 
@@ -2519,6 +2521,7 @@ main(void)
 
 			case '/':
 			{
+				/*
 				bool hexModeFlag = 1;
 				#ifdef WARP_BUILD_ENABLE_DEVINA219
 				enableI2Cpins(menuI2cPullupValue);
@@ -2528,6 +2531,12 @@ main(void)
 
 				}
 				#endif
+				break;
+				*/
+				for (int i = 0; i < 1000; i++)
+				{
+					int a = takeReading;
+				}
 				break;
 			}
 
