@@ -312,6 +312,33 @@ students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.c.s:
 	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.c.s
 .PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.c.s
 
+students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.obj: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
+
+.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.obj
+
+# target to build an object file
+students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
+.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
+
+students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.i: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.i
+
+.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.i
+
+# target to preprocess a source file
+students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.i:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.i
+.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.i
+
+students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.s: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.s
+
+.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.s
+
+# target to generate assembly for a file
+students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.s:
+	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.s
+.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.s
+
 students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.obj: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.c.obj
 
 .PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.obj
@@ -729,6 +756,9 @@ help:
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.obj"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.i"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.s"
+	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.obj"
+	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.i"
+	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.s"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.obj"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.i"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHDC1000.s"
