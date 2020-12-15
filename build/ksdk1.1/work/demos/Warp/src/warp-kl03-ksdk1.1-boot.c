@@ -1367,7 +1367,7 @@ main(void)
 	 */
 #endif
 
-	int output_green = devSSD1331init();
+	//int output_green = devSSD1331init();
 
 	// Loop 1000 times for current data
 
@@ -2535,7 +2535,7 @@ main(void)
 				*/
 				for (int i = 0; i < 1000; i++)
 				{
-					int a = takeReading;
+					int a = takeReading();
 				}
 				break;
 			}
