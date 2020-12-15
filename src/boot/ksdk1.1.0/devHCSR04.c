@@ -20,11 +20,13 @@ takeReading()
 {
 	// Set the trigger pin high for 10 microseconds
 	GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
+	uint32_t c = GPIO_DRV_ReadPinInput(kHCSR04PinTrig);
 	OSA_TimeDelay(10);
 	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
 	int counter;
 
 	//start timer
+
 	uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
 	OSA_TimeDelay(100);
@@ -55,7 +57,7 @@ takeReading()
 
 	return distance;
 	*/
-	SEGGER_RTT_printf(0, "%d, %d\n", a, b);
+	SEGGER_RTT_printf(0, "%d, %d, %d\n", c, a, b);
 	return 1;
 
 }
