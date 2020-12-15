@@ -1293,36 +1293,36 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                 0x00000000000017f8       0x34 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
                 0x00000000000017f8                activateAllLowPowerSensorModes
  .text.startup.main
-                0x000000000000182c      0xb94 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
+                0x000000000000182c      0xb88 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-boot.c.obj
                 0x000000000000182c                main
  .text.setSleepRtcAlarm
-                0x00000000000023c0       0x2e CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c.obj
- *fill*         0x00000000000023ee        0x2 
+                0x00000000000023b4       0x2e CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c.obj
+ *fill*         0x00000000000023e2        0x2 
  .text.gpioDisableWakeUp
-                0x00000000000023f0       0x18 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c.obj
-                0x00000000000023f0                gpioDisableWakeUp
+                0x00000000000023e4       0x18 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c.obj
+                0x00000000000023e4                gpioDisableWakeUp
  .text.warpSetLowPowerMode
-                0x0000000000002408       0xf2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c.obj
-                0x0000000000002408                warpSetLowPowerMode
- *fill*         0x00000000000024fa        0x2 
+                0x00000000000023fc       0xf2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c.obj
+                0x00000000000023fc                warpSetLowPowerMode
+ *fill*         0x00000000000024ee        0x2 
  .text.writeSensorRegisterINA219.part.0
-                0x00000000000024fc       0x48 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+                0x00000000000024f0       0x48 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
  .text.initINA219
-                0x0000000000002544        0x4 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
-                0x0000000000002544                initINA219
+                0x0000000000002538        0x4 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+                0x0000000000002538                initINA219
  .text.configureSensorINA219
-                0x0000000000002548        0xe CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
-                0x0000000000002548                configureSensorINA219
- *fill*         0x0000000000002556        0x2 
+                0x000000000000253c        0xe CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+                0x000000000000253c                configureSensorINA219
+ *fill*         0x000000000000254a        0x2 
  .text.readSensorRegisterINA219
-                0x0000000000002558       0x5c CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
-                0x0000000000002558                readSensorRegisterINA219
+                0x000000000000254c       0x5c CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+                0x000000000000254c                readSensorRegisterINA219
  .text.printSensorDataINA219
-                0x00000000000025b4       0x84 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
-                0x00000000000025b4                printSensorDataINA219
+                0x00000000000025a8       0x84 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
+                0x00000000000025a8                printSensorDataINA219
  .text.takeReading
-                0x0000000000002638       0x44 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
-                0x0000000000002638                takeReading
+                0x000000000000262c       0x50 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
+                0x000000000000262c                takeReading
  .text.writeSensorRegisterMMA8451Q.part.0
                 0x000000000000267c       0x44 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
  .text.initMMA8451Q
@@ -1735,7 +1735,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                                          0x18 (size before relaxing)
  .rodata.takeReading.str1.1
                 0x000000000000640c       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
-                                          0x8 (size before relaxing)
+                                          0xc (size before relaxing)
  .rodata.readSensorRegisterMMA8451Q.str1.1
                 0x000000000000640c        0x2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
  .rodata.printSensorDataMMA8451Q.str1.1

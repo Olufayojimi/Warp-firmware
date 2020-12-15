@@ -2533,7 +2533,7 @@ main(void)
 				#endif
 				break;
 				*/
-				for (int i = 0; i < 5; i++)
+				for (int i = 0; i < 1; i++)
 				{
 					int a = takeReading();
 				}
