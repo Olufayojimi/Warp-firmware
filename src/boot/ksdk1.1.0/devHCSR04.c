@@ -2,6 +2,7 @@
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
+#include "fsl_gpio_driver.h"
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
@@ -15,12 +16,15 @@ enum
 	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 4),
 };
 
-GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
-GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
+
 
 int
 takeReading()
 {
+
+	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
+	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
+
 	// Set the trigger pin high for 10 microseconds
 	GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
 	//uint32_t c = GPIO_DRV_ReadPinInput(kHCSR04PinTrig);
