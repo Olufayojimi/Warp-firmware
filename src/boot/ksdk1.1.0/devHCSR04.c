@@ -20,7 +20,8 @@ takeReading()
 {
 	// Set the trigger pin high for 10 microseconds
 	GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
-	uint32_t c = GPIO_DRV_ReadPinInput(kHCSR04PinTrig);
+	//uint32_t c = GPIO_DRV_ReadPinInput(kHCSR04PinTrig);
+	uint32_t c = 0x01;
 	OSA_TimeDelay(10);
 	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
 	int counter;
