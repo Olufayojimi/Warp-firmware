@@ -12,8 +12,8 @@
 
 enum
 {
-	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 3),
-	//kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 4),
+	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 10),
+	//kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
 };
 
 
@@ -39,9 +39,9 @@ takeReading()
 
 	uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
-	OSA_TimeDelay(10000);
+	//OSA_TimeDelay(1000);
 
-	uint32_t b = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+	//uint32_t b = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
 	/*
 	while (GPIO_DRV_ReadPinInput(kHCSR04PinEcho) == 1)
@@ -67,7 +67,7 @@ takeReading()
 
 	return distance;
 	*/
-	SEGGER_RTT_printf(0, "%d, %d\n", a, b);
+	SEGGER_RTT_printf(0, "%d\n", a);
 	return 1;
 
 }
