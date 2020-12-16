@@ -476,6 +476,18 @@ fsl_i2c_hal.h
 fsl_os_abstraction.h
 ../../../../platform/drivers/inc/fsl_os_abstraction.h
 
+../../../../platform/drivers/inc/fsl_lptmr_driver.h
+assert.h
+-
+stdint.h
+-
+stdbool.h
+-
+fsl_lptmr_hal.h
+../../../../platform/drivers/inc/fsl_lptmr_hal.h
+fsl_sim_hal.h
+../../../../platform/drivers/inc/fsl_sim_hal.h
+
 ../../../../platform/drivers/inc/fsl_lpuart_driver.h
 stdint.h
 -
@@ -526,6 +538,16 @@ stdint.h
 stdbool.h
 -
 assert.h
+-
+fsl_device_registers.h
+../../../../platform/hal/inc/fsl_device_registers.h
+
+../../../../platform/hal/inc/fsl_lptmr_hal.h
+assert.h
+-
+stdint.h
+-
+stdbool.h
 -
 fsl_device_registers.h
 ../../../../platform/hal/inc/fsl_device_registers.h
@@ -957,6 +979,8 @@ fsl_spi_master_driver.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_spi_master_driver.h
 fsl_port_hal.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_port_hal.h
+fsl_lptmr_driver.h
+/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_lptmr_driver.h
 SEGGER_RTT.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
 gpio_pins.h

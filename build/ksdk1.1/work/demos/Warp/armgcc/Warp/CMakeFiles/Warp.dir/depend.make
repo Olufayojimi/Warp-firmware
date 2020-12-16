@@ -204,10 +204,14 @@ CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/s
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/CMSIS/Include/device/MKL03Z4/fsl_bitaccess.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/CMSIS/Include/device/fsl_device_registers.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/drivers/inc/fsl_gpio_driver.h
+CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/drivers/inc/fsl_lptmr_driver.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/drivers/inc/fsl_spi_master_driver.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_gpio_hal.h
+CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_lptmr_hal.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_port_hal.h
+CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_sim_hal.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_spi_hal.h
+CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/src/sim/MKL03Z4/fsl_sim_hal_MKL03Z4.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/osa/inc/fsl_os_abstraction.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/osa/inc/fsl_os_abstraction_bm.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/osa/inc/fsl_os_abstraction_free_rtos.h
