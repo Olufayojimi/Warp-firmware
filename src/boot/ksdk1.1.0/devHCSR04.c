@@ -13,7 +13,7 @@
 enum
 {
 	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 10),
-	//kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
+	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
 };
 
 
@@ -23,25 +23,25 @@ takeReading()
 {
 
 	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
-	//GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
+	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
 
-	//GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-	//OSA_TimeDelay(5);
+	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+	OSA_TimeDelay(5);
 
 
 	// Set the trigger pin high for 10 microseconds
-	//GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
-	//OSA_TimeDelay(10);
-	//GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+	GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
+	OSA_TimeDelay(10);
+	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
 	//int counter;
 
 	//start timer
 
 	uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
-	//OSA_TimeDelay(1000);
+	OSA_TimeDelay(1000);
 
-	//uint32_t b = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+	uint32_t b = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
 	/*
 	while (GPIO_DRV_ReadPinInput(kHCSR04PinEcho) == 1)
@@ -67,7 +67,7 @@ takeReading()
 
 	return distance;
 	*/
-	SEGGER_RTT_printf(0, "%d\n", a);
+	SEGGER_RTT_printf(0, "%d, %d\n", a, b);
 	return 1;
 
 }
