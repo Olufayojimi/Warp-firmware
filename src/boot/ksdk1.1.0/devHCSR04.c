@@ -52,6 +52,18 @@ takeReading()
     // Specify the callback function when a LPTMR interrupt occurs
     LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
+    LPTMR_DRV_Start(LPTMR_INSTANCE);
+
+    OSA_TimeDelay(1000);
+
+    LPTMR_DRV_Stop(LPTMR_INSTANCE);
+
+	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
+
+
+
+    /*
+
 	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
 	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
 
@@ -116,6 +128,7 @@ takeReading()
 
 	return distance;
 	*/
+
 	SEGGER_RTT_printf(0, "%d\n", time);
 	return 1;
 
