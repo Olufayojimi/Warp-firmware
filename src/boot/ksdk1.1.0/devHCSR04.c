@@ -43,6 +43,13 @@ takeReading()
 	{
 		a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 	}
+	int counter = 0;
+	while (a == 1) 
+	{
+		OSA_TimeDelay(1);
+		counter += 1;
+		a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+	}
 
 
 	//OSA_TimeDelay(1000);
@@ -73,7 +80,7 @@ takeReading()
 
 	return distance;
 	*/
-	SEGGER_RTT_printf(0, "%d\n", a);
+	SEGGER_RTT_printf(0, "%d\n", counter);
 	return 1;
 
 }
