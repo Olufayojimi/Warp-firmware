@@ -2,7 +2,7 @@
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
-#include "fsl_gpio_driver.h"
+//#include "fsl_gpio_driver.h"
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
@@ -13,7 +13,7 @@
 enum
 {
 	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 3),
-	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 4),
+	//kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 4),
 };
 
 
@@ -23,23 +23,23 @@ takeReading()
 {
 
 	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
-	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
+	//GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
 
-	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-	OSA_TimeDelay(5);
+	//GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+	//OSA_TimeDelay(5);
 
 
 	// Set the trigger pin high for 10 microseconds
-	GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
-	OSA_TimeDelay(10);
-	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-	int counter;
+	//GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
+	//OSA_TimeDelay(10);
+	//GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+	//int counter;
 
 	//start timer
 
 	uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
-	OSA_TimeDelay(100);
+	OSA_TimeDelay(10000);
 
 	uint32_t b = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
@@ -67,7 +67,7 @@ takeReading()
 
 	return distance;
 	*/
-	SEGGER_RTT_printf(0, "%d, %d, %d\n", a, b);
+	SEGGER_RTT_printf(0, "%d, %d\n", a, b);
 	return 1;
 
 }
