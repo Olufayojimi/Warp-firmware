@@ -37,6 +37,8 @@ takeReading()
 {
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
+	/*
+
 
 	lptmr_user_config_t LptmrUserConfig =
     {
@@ -90,7 +92,7 @@ takeReading()
     	eggs = 2;
     }
 
-    /*
+    
    
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
     if (status != kStatus_LPTMR_Success)
@@ -101,7 +103,7 @@ takeReading()
 
 
     SEGGER_RTT_printf(0, "%d time stopped\n", 1);
-    */
+    
 
 
 	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
@@ -177,9 +179,14 @@ takeReading()
 	return distance;
 	*/
 
-	SEGGER_RTT_printf(0, "%d\n", time);
-	return 1;
+	//SEGGER_RTT_printf(0, "%d\n", time);
+	//return 1;
 
+	SEGGER_RTT_printf(0, "%d\n", 1);
+
+	OSA_TimeDelay(1000);
+
+	SEGGER_RTT_printf(0, "%d\n", 2);
 }
 
 void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
