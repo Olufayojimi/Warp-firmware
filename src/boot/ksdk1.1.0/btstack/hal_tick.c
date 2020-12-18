@@ -88,7 +88,7 @@ void hal_tick_init(void){
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
         .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .isInterruptEnabled = true
+        .isInterruptEnabled = false
     };
 
     // Initialize LPTMR

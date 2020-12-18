@@ -46,7 +46,7 @@ takeReading()
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
         .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .isInterruptEnabled = true
+        .isInterruptEnabled = false
     };
 
     SEGGER_RTT_printf(0, "%dst stage passed\n", 1);
@@ -82,10 +82,11 @@ takeReading()
 
     //OSA_TimeDelay(1);
 
+    uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
-    while (LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE) < 1)
+    while (time < 1)
     {
-    	continue;
+    	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
     }
 
    
@@ -101,7 +102,7 @@ takeReading()
     
 
 
-	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
+	
 
 	SEGGER_RTT_printf(0, "%dtime received\n", 1);
 
