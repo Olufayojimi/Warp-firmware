@@ -37,7 +37,7 @@ extern const hwtimer_devif_t kPitDevif;
 
 
 
-Hwtimer_t hwtimer;
+hwtimer_t hwtimer;
 
 enum
 {
