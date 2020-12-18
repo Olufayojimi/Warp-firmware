@@ -192,9 +192,9 @@ takeReading()
 	return distance;
 	*/
 
+	SEGGER_RTT_printf(0,"Commence Initialisation\n");
 
-
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 0, NULL))
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL))
 	{
 		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
 	}
