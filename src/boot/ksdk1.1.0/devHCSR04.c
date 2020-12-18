@@ -16,10 +16,7 @@ static void (*tick_handler)(void) = &dummy_handler;
 
 static lptmr_state_t gLPTMRState;
 
-void lptmr_isr_callback(void)
-{
-	(*tick_handler)();
-}
+
 
 
 enum
@@ -33,6 +30,8 @@ enum
 int
 takeReading()
 {
+	SEGGER_RTT_printf(0, "%d about to start\n", 1);
+
 
 	lptmr_user_config_t LptmrUserConfig =
     {
@@ -40,11 +39,15 @@ takeReading()
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
         .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .isInterruptEnabled = true
+        .isInterruptEnabled = false
     };
+
+    SEGGER_RTT_printf(0, "%dst stage passed did not work\n", 1);
 
     // Initialize LPTMR
     lptmr_status_t status = LPTMR_DRV_Init(LPTMR_INSTANCE,&LptmrUserConfig,&gLPTMRState);
+
+    SEGGER_RTT_printf(0, "%dnd stage passed\n", 2);
 
     if (status != kStatus_LPTMR_Success)
     {
@@ -61,6 +64,8 @@ takeReading()
 
     status = LPTMR_DRV_Start(LPTMR_INSTANCE);
 
+    SEGGER_RTT_printf(0, "%drd stage passed\n", 3);
+
     if (status != kStatus_LPTMR_Success)
     {
     	SEGGER_RTT_printf(0, "%d Starter did not work\n", 1);
@@ -69,12 +74,16 @@ takeReading()
 
     OSA_TimeDelay(1000);
 
+    SEGGER_RTT_printf(0, "%d time delay passed\n", 4);
+
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
     if (status != kStatus_LPTMR_Success)
     {
     	SEGGER_RTT_printf(0, "%d Stopper did not work\n", 1);
     	return 0;
     }
+
+    SEGGER_RTT_printf(0, "%d time stopped\n", 1);
 
 	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
@@ -152,16 +161,3 @@ takeReading()
 
 }
 
-void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
-
-    if (handler == NULL)
-    {
-        tick_handler = &dummy_handler;
-        return;
-    }
-    tick_handler = handler;
-}
-
-int hal_tick_get_tick_period_in_ms(void){
-    return 250;
-}
