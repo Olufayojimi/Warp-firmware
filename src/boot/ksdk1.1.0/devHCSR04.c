@@ -42,7 +42,7 @@ takeReading()
         .isInterruptEnabled = false
     };
 
-    SEGGER_RTT_printf(0, "%dst stage passed did not work\n", 1);
+    SEGGER_RTT_printf(0, "%dst stage passed\n", 1);
 
     // Initialize LPTMR
     lptmr_status_t status = LPTMR_DRV_Init(LPTMR_INSTANCE,&LptmrUserConfig,&gLPTMRState);
@@ -72,7 +72,7 @@ takeReading()
     	return 0;
     }
 
-    OSA_TimeDelay(1000);
+    OSA_TimeDelay(1);
 
     SEGGER_RTT_printf(0, "%d time delay passed\n", 4);
 
