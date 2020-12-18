@@ -192,12 +192,12 @@ takeReading()
 	return distance;
 	*/
 
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, NULL))
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 0, NULL))
 	{
 		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
 	}
 
-	if (kHwtimerSuccess != HWTIMER_SYS_SetPeriod(&hwtimer, HWTIMER_PERIOD))
+	if (kHwtimerSuccess != HWTIMER_SYS_SetFreq(&hwtimer, kCoreClock, HWTIMER_PERIOD))
     {
          SEGGER_RTT_printf(0,"\r\nError: hwtimer set period.\r\n");
     }
