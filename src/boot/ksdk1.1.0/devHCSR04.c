@@ -17,7 +17,12 @@ static void (*tick_handler)(void) = &dummy_handler;
 static lptmr_state_t gLPTMRState;
 
 
-
+void lptmr_isr_callback(void)
+{
+    // gLPTMR_counter++;
+    (*tick_handler)();
+    // printf("%d ",gLPTMR_counter);
+}
 
 enum
 {
@@ -59,6 +64,8 @@ takeReading()
     // Set the timer period for 250 milliseconds
     LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
+    LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+
     // Specify the callback function when a LPTMR interrupt occurs
     //LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
@@ -74,12 +81,14 @@ takeReading()
 
     //OSA_TimeDelay(1);
 
-    for (int i=0; i<10000; i++)
-    {
-    	int apple = 5 * 6;
-    	continue;
-    }
 
+    for (int i=0; i < 10000; i++)
+    {
+    	int box;
+    	int eggs;
+    	box = 1;
+    	eggs = 2;
+    }
     
 
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
@@ -168,5 +177,19 @@ takeReading()
 	SEGGER_RTT_printf(0, "%d\n", time);
 	return 1;
 
+}
+
+void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
+
+    if (handler == NULL)
+    {
+        tick_handler = &dummy_handler;
+        return;
+    }
+    tick_handler = handler;
+}
+
+int hal_tick_get_tick_period_in_ms(void){
+    return 250;
 }
 
