@@ -89,8 +89,9 @@ takeReading()
     	box = 1;
     	eggs = 2;
     }
-    
 
+    /*
+   
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
     if (status != kStatus_LPTMR_Success)
     {
@@ -100,6 +101,8 @@ takeReading()
 
 
     SEGGER_RTT_printf(0, "%d time stopped\n", 1);
+    */
+
 
 	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
