@@ -192,20 +192,28 @@ takeReading()
 	return distance;
 	*/
 
+
+
 	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 0, NULL))
 	{
 		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
 	}
+
+	SEGGER_RTT_printf(0,"Initialise success\n");
 
 	if (kHwtimerSuccess != HWTIMER_SYS_SetFreq(&hwtimer, kCoreClock, HWTIMER_PERIOD))
     {
          SEGGER_RTT_printf(0,"\r\nError: hwtimer set period.\r\n");
     }
 
+    SEGGER_RTT_printf(0,"Frequency set\n");
+
     if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
     {
          SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
     }
+
+    SEGGER_RTT_printf(0,"timer started\n");
 
     while (HWTIMER_SYS_GetTicks(&hwtimer) < 1)
     {
@@ -214,10 +222,14 @@ takeReading()
 
     uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
 
+    SEGGER_RTT_printf(0,"time extracted\n");
+
     if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
     {
          SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
     }
+
+    SEGGER_RTT_printf(0,"timer stopped\n");
 
     SEGGER_RTT_printf(0, "%d\n", time);
 	return 1;
