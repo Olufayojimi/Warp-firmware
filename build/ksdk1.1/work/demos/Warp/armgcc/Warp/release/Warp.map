@@ -1134,7 +1134,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  .FlashConfig   0x0000000000000400       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/platform/startup/MKL03Z4/gcc/startup_MKL03Z4.S.obj
                 0x0000000000000410                . = ALIGN (0x4)
 
-.text           0x0000000000000410     0x64ec
+.text           0x0000000000000410     0x64e0
                 0x0000000000000410                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000000000410       0x98 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
@@ -1781,147 +1781,147 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                 0x0000000000006698       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
                                          0x18 (size before relaxing)
  .rodata.takeReading.str1.1
-                0x00000000000066ac       0xcd CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
-                                         0xd1 (size before relaxing)
+                0x00000000000066ac       0xc0 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
+                                         0xc4 (size before relaxing)
  .rodata.readSensorRegisterMMA8451Q.str1.1
-                0x0000000000006779        0x2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
+                0x000000000000676c        0x2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
  .rodata.printSensorDataMMA8451Q.str1.1
-                0x0000000000006779       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
+                0x000000000000676c       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
                                          0x1c (size before relaxing)
  .rodata._DoInit.str1.1
-                0x0000000000006789       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c.obj
+                0x000000000000677c       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c.obj
  .rodata._aV2C.4388
-                0x000000000000679d       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.obj
+                0x0000000000006790       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.obj
  .rodata.portGateTable
-                0x00000000000067ad        0x2 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_MKL03Z4.c.obj)
- *fill*         0x00000000000067af        0x1 
+                0x00000000000067a0        0x2 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_MKL03Z4.c.obj)
+ *fill*         0x00000000000067a2        0x2 
  .rodata.g_i2cBaseAddr
-                0x00000000000067b0        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_common.c.obj)
-                0x00000000000067b0                g_i2cBaseAddr
+                0x00000000000067a4        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_common.c.obj)
+                0x00000000000067a4                g_i2cBaseAddr
  .rodata.g_i2cIrqId
-                0x00000000000067b4        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_common.c.obj)
-                0x00000000000067b4                g_i2cIrqId
- *fill*         0x00000000000067b5        0x3 
+                0x00000000000067a8        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_common.c.obj)
+                0x00000000000067a8                g_i2cIrqId
+ *fill*         0x00000000000067a9        0x3 
  .rodata.g_lptmrBaseAddr
-                0x00000000000067b8        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_lptmr_common.c.obj)
-                0x00000000000067b8                g_lptmrBaseAddr
+                0x00000000000067ac        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_lptmr_common.c.obj)
+                0x00000000000067ac                g_lptmrBaseAddr
  .rodata.g_lptmrIrqId
-                0x00000000000067bc        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_lptmr_common.c.obj)
-                0x00000000000067bc                g_lptmrIrqId
- .rodata.LY     0x00000000000067bd        0xd ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_hal.c.obj)
+                0x00000000000067b0        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_lptmr_common.c.obj)
+                0x00000000000067b0                g_lptmrIrqId
+ .rodata.LY     0x00000000000067b1        0xd ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_hal.c.obj)
  .rodata.MONTH_DAYS
-                0x00000000000067ca       0x1a ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_hal.c.obj)
- .rodata.ULY    0x00000000000067e4        0xd ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_hal.c.obj)
- *fill*         0x00000000000067f1        0x3 
+                0x00000000000067be       0x1a ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_hal.c.obj)
+ .rodata.ULY    0x00000000000067d8        0xd ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_hal.c.obj)
+ *fill*         0x00000000000067e5        0x3 
  .rodata.g_rtcBaseAddr
-                0x00000000000067f4        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_common.c.obj)
-                0x00000000000067f4                g_rtcBaseAddr
+                0x00000000000067e8        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_common.c.obj)
+                0x00000000000067e8                g_rtcBaseAddr
  .rodata.g_rtcIrqId
-                0x00000000000067f8        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_common.c.obj)
-                0x00000000000067f8                g_rtcIrqId
+                0x00000000000067ec        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_common.c.obj)
+                0x00000000000067ec                g_rtcIrqId
  .rodata.g_rtcSecondsIrqId
-                0x00000000000067f9        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_common.c.obj)
-                0x00000000000067f9                g_rtcSecondsIrqId
- *fill*         0x00000000000067fa        0x2 
+                0x00000000000067ed        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_rtc_common.c.obj)
+                0x00000000000067ed                g_rtcSecondsIrqId
+ *fill*         0x00000000000067ee        0x2 
  .rodata.g_spiBaseAddr
-                0x00000000000067fc        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_spi_common.c.obj)
-                0x00000000000067fc                g_spiBaseAddr
+                0x00000000000067f0        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_spi_common.c.obj)
+                0x00000000000067f0                g_spiBaseAddr
  .rodata.g_spiIrqId
-                0x0000000000006800        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_spi_common.c.obj)
-                0x0000000000006800                g_spiIrqId
- *fill*         0x0000000000006801        0x3 
+                0x00000000000067f4        0x1 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_spi_common.c.obj)
+                0x00000000000067f4                g_spiIrqId
+ *fill*         0x00000000000067f5        0x3 
  .rodata.g_oscBaseAddr
-                0x0000000000006804        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_manager_common.c.obj)
-                0x0000000000006804                g_oscBaseAddr
+                0x00000000000067f8        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_manager_common.c.obj)
+                0x00000000000067f8                g_oscBaseAddr
  .rodata.g_gpioBaseAddr
-                0x0000000000006808        0x8 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_gpio_common.c.obj)
-                0x0000000000006808                g_gpioBaseAddr
+                0x00000000000067fc        0x8 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_gpio_common.c.obj)
+                0x00000000000067fc                g_gpioBaseAddr
  .rodata.g_portBaseAddr
-                0x0000000000006810        0x8 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_gpio_common.c.obj)
-                0x0000000000006810                g_portBaseAddr
+                0x0000000000006804        0x8 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_gpio_common.c.obj)
+                0x0000000000006804                g_portBaseAddr
  .rodata.g_portIrqId
-                0x0000000000006818        0x2 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_gpio_common.c.obj)
-                0x0000000000006818                g_portIrqId
+                0x000000000000680c        0x2 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_gpio_common.c.obj)
+                0x000000000000680c                g_portIrqId
  .rodata.kI2CDividerTable
-                0x000000000000681a       0xc8 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_hal.c.obj)
-                0x000000000000681a                kI2CDividerTable
+                0x000000000000680e       0xc8 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_hal.c.obj)
+                0x000000000000680e                kI2CDividerTable
  *(.glue_7)
- .glue_7        0x00000000000068e2        0x0 linker stubs
+ .glue_7        0x00000000000068d6        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x00000000000068e2        0x0 linker stubs
+ .glue_7t       0x00000000000068d6        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x00000000000068e2        0x2 
- .eh_frame      0x00000000000068e4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+ *fill*         0x00000000000068d6        0x2 
+ .eh_frame      0x00000000000068d8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
  *(.init)
- .init          0x00000000000068e4        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x00000000000068e4                _init
- .init          0x00000000000068e8        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x00000000000068d8        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x00000000000068d8                _init
+ .init          0x00000000000068dc        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x00000000000068f0        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x00000000000068f0                _fini
- .fini          0x00000000000068f4        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
-                0x00000000000068fc                . = ALIGN (0x4)
+ .fini          0x00000000000068e4        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x00000000000068e4                _fini
+ .fini          0x00000000000068e8        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+                0x00000000000068f0                . = ALIGN (0x4)
 
-.vfp11_veneer   0x00000000000068fc        0x0
- .vfp11_veneer  0x00000000000068fc        0x0 linker stubs
+.vfp11_veneer   0x00000000000068f0        0x0
+ .vfp11_veneer  0x00000000000068f0        0x0 linker stubs
 
-.v4_bx          0x00000000000068fc        0x0
- .v4_bx         0x00000000000068fc        0x0 linker stubs
+.v4_bx          0x00000000000068f0        0x0
+ .v4_bx         0x00000000000068f0        0x0 linker stubs
 
-.iplt           0x00000000000068fc        0x0
- .iplt          0x00000000000068fc        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x00000000000068f0        0x0
+ .iplt          0x00000000000068f0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00000000000068fc        0x8
-                0x00000000000068fc                __exidx_start = .
+.ARM            0x00000000000068f0        0x8
+                0x00000000000068f0                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00000000000068fc        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.exidx     0x00000000000068f0        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
                                          0x10 (size before relaxing)
-                0x0000000000006904                __exidx_end = .
+                0x00000000000068f8                __exidx_end = .
 
-.rel.dyn        0x0000000000006904        0x0
- .rel.iplt      0x0000000000006904        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x00000000000068f8        0x0
+ .rel.iplt      0x00000000000068f8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.ctors          0x0000000000006904        0x0
-                0x0000000000006904                __CTOR_LIST__ = .
+.ctors          0x00000000000068f8        0x0
+                0x00000000000068f8                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x0000000000006904                __CTOR_END__ = .
+                0x00000000000068f8                __CTOR_END__ = .
 
-.dtors          0x0000000000006904        0x0
-                0x0000000000006904                __DTOR_LIST__ = .
+.dtors          0x00000000000068f8        0x0
+                0x00000000000068f8                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x0000000000006904                __DTOR_END__ = .
+                0x00000000000068f8                __DTOR_END__ = .
 
-.preinit_array  0x0000000000006904        0x0
-                0x0000000000006904                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x00000000000068f8        0x0
+                0x00000000000068f8                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000000006904                PROVIDE (__preinit_array_end = .)
+                0x00000000000068f8                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000000006904        0x4
-                0x0000000000006904                PROVIDE (__init_array_start = .)
+.init_array     0x00000000000068f8        0x4
+                0x00000000000068f8                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000000006904        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x0000000000006908                PROVIDE (__init_array_end = .)
+ .init_array    0x00000000000068f8        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x00000000000068fc                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000000006908        0x4
-                0x0000000000006908                PROVIDE (__fini_array_start = .)
+.fini_array     0x00000000000068fc        0x4
+                0x00000000000068fc                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000000006908        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x000000000000690c                PROVIDE (__fini_array_end = .)
-                0x000000000000690c                __etext = .
-                0x000000000000690c                __DATA_ROM = .
+ .fini_array    0x00000000000068fc        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000000006900                PROVIDE (__fini_array_end = .)
+                0x0000000000006900                __etext = .
+                0x0000000000006900                __DATA_ROM = .
 
 .mtb            0x000000001ffffe00        0x0
                 0x000000001ffffe00                . = ALIGN (0x8)
@@ -1942,7 +1942,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                 0x0000000000000000                __VECTOR_RAM = DEFINED (__ram_vector_table__)?__VECTOR_RAM__:ORIGIN (m_interrupts)
                 0x0000000000000000                __RAM_VECTOR_TABLE_SIZE_BYTES = DEFINED (__ram_vector_table__)?(__interrupts_ram_end__ - __interrupts_ram_start__):0x0
 
-.data           0x000000001ffffe00      0x1a8 load address 0x000000000000690c
+.data           0x000000001ffffe00      0x1a8 load address 0x0000000000006900
                 0x000000001ffffe00                . = ALIGN (0x4)
                 0x000000001ffffe00                __DATA_RAM = .
                 0x000000001ffffe00                __data_start__ = .
@@ -1989,19 +1989,19 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *(.jcr*)
                 0x000000001fffffa8                . = ALIGN (0x4)
                 0x000000001fffffa8                __data_end__ = .
-                0x0000000000006ab4                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x0000000000006aa8                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
 
 .tm_clone_table
-                0x000000001fffffa8        0x0 load address 0x0000000000006ab4
+                0x000000001fffffa8        0x0 load address 0x0000000000006aa8
  .tm_clone_table
                 0x000000001fffffa8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x000000001fffffa8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x000000001fffffa8        0x0 load address 0x0000000000006ab4
+.igot.plt       0x000000001fffffa8        0x0 load address 0x0000000000006aa8
  .igot.plt      0x000000001fffffa8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.bss            0x000000001fffffa8      0x324 load address 0x0000000000006ab4
+.bss            0x000000001fffffa8      0x324 load address 0x0000000000006aa8
                 0x000000001fffffa8                . = ALIGN (0x4)
                 0x000000001fffffa8                __START_BSS = .
                 0x000000001fffffa8                __bss_start__ = .
@@ -2077,7 +2077,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                 0x00000000200002cc                __bss_end__ = .
                 0x00000000200002cc                __END_BSS = .
 
-.heap           0x00000000200002cc        0x4 load address 0x0000000000006dd8
+.heap           0x00000000200002cc        0x4 load address 0x0000000000006dcc
                 0x00000000200002d0                . = ALIGN (0x8)
  *fill*         0x00000000200002cc        0x4 
                 0x00000000200002d0                __end__ = .
@@ -2086,7 +2086,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                 0x00000000200002d0                . = (. + HEAP_SIZE)
                 0x00000000200002d0                __HeapLimit = .
 
-.stack          0x00000000200002d0      0x200 load address 0x0000000000006ddc
+.stack          0x00000000200002d0      0x200 load address 0x0000000000006dd0
                 0x00000000200002d0                . = ALIGN (0x8)
                 0x00000000200004d0                . = (. + STACK_SIZE)
  *fill*         0x00000000200002d0      0x200 
