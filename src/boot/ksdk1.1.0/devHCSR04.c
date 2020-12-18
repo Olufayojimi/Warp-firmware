@@ -3,12 +3,14 @@
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
 #include "fsl_lptmr_driver.h"
+#include "fsl_hwtimer.h"
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
 #include "warp.h"
 #include "devHCSR04.h"
 
+/*
 static void dummy_handler(void){};
 static void (*tick_handler)(void) = &dummy_handler;
 
@@ -23,6 +25,19 @@ void lptmr_isr_callback(void)
     (*tick_handler)();
     // printf("%d ",gLPTMR_counter);
 }
+*/
+
+
+#define HWTIMER_LL_DEVIF kSystickDevif
+#define HWTIMER_LL_ID 0
+#define HWTIMER_PERIOD 1000000
+
+extern const hwtimer_devif_t kSystickDevif;
+extern const hwtimer_devif_t kPitDevif;
+
+
+
+Hwtimer_t hwtimer;
 
 enum
 {
@@ -35,6 +50,7 @@ enum
 int
 takeReading()
 {
+	/*
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
 	
@@ -176,9 +192,38 @@ takeReading()
 	return distance;
 	*/
 
-	SEGGER_RTT_printf(0, "%d\n", time);
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, NULL))
+	{
+		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
+	}
+
+	if (kHwtimerSuccess != HWTIMER_SYS_SetPeriod(&hwtimer, HWTIMER_PERIOD))
+    {
+         SEGGER_RTT_printf(0,"\r\nError: hwtimer set period.\r\n");
+    }
+
+    if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
+    {
+         SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
+    }
+
+    while (HWTIMER_SYS_GetTicks(&hwtimer) < 1)
+    {
+    	continue;
+    }
+
+    uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
+
+    if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
+    {
+         SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
+    }
+
+    SEGGER_RTT_printf(0, "%d\n", time);
 	return 1;
 }
+
+/*
 
 void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
 
@@ -193,4 +238,4 @@ void hal_tick_set_handler(void (*handler)(void)) { //this will get called every 
 int hal_tick_get_tick_period_in_ms(void){
     return 250;
 }
-
+*/
