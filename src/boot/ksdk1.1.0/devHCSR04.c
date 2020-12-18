@@ -46,7 +46,7 @@ takeReading()
     // Initialize LPTMR
     lptmr_status_t status = LPTMR_DRV_Init(LPTMR_INSTANCE,&LptmrUserConfig,&gLPTMRState);
 
-    if (status != kStatus_LPTMR_SUCCESS)
+    if (status != kStatus_LPTMR_Success)
     {
     	SEGGER_RTT_printf(0, "%dnitialiser did not work\n", 1);
     	return 0;
@@ -61,7 +61,7 @@ takeReading()
 
     status = LPTMR_DRV_Start(LPTMR_INSTANCE);
 
-    if (status != kStatus_LPTMR_SUCCESS)
+    if (status != kStatus_LPTMR_Success)
     {
     	SEGGER_RTT_printf(0, "%d Starter did not work\n", 1);
     	return 0;
@@ -70,7 +70,7 @@ takeReading()
     OSA_TimeDelay(1000);
 
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
-    if (status != kStatus_LPTMR_SUCCESS)
+    if (status != kStatus_LPTMR_Success)
     {
     	SEGGER_RTT_printf(0, "%d Stopper did not work\n", 1);
     	return 0;
