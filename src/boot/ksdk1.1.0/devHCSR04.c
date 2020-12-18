@@ -74,6 +74,11 @@ takeReading()
 
     //OSA_TimeDelay(1);
 
+    for (int i=0; i<1000; i++)
+    {
+    	continue;
+    }
+
     
 
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
