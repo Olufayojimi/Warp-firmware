@@ -37,7 +37,7 @@ takeReading()
 {
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
-	/*
+	
 
 
 	lptmr_user_config_t LptmrUserConfig =
@@ -46,7 +46,7 @@ takeReading()
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
         .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .isInterruptEnabled = false
+        .isInterruptEnabled = true
     };
 
     SEGGER_RTT_printf(0, "%dst stage passed\n", 1);
@@ -68,8 +68,7 @@ takeReading()
 
     LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
-    // Specify the callback function when a LPTMR interrupt occurs
-    //LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+    
 
     status = LPTMR_DRV_Start(LPTMR_INSTANCE);
 
@@ -84,15 +83,11 @@ takeReading()
     //OSA_TimeDelay(1);
 
 
-    for (int i=0; i < 10000; i++)
+    while (LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE) < 1)
     {
-    	int box;
-    	int eggs;
-    	box = 1;
-    	eggs = 2;
+    	continue;
     }
 
-    
    
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
     if (status != kStatus_LPTMR_Success)
@@ -179,14 +174,8 @@ takeReading()
 	return distance;
 	*/
 
-	//SEGGER_RTT_printf(0, "%d\n", time);
-	//return 1;
-
-	SEGGER_RTT_printf(0, "%d\n", 1);
-
-	OSA_TimeDelay(1000);
-
-	SEGGER_RTT_printf(0, "%d\n", 2);
+	SEGGER_RTT_printf(0, "%d\n", time);
+	return 1;
 }
 
 void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
