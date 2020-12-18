@@ -57,7 +57,7 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    //LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
+    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
     // Specify the callback function when a LPTMR interrupt occurs
     //LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
@@ -74,8 +74,9 @@ takeReading()
 
     //OSA_TimeDelay(1);
 
-    for (int i=0; i<1000; i++)
+    for (int i=0; i<10000; i++)
     {
+    	int apple = 5 * 6;
     	continue;
     }
 
