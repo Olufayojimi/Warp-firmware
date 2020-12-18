@@ -34,7 +34,7 @@ int
 takeReading()
 {
 
-	lptmr_user_config_t lptmrUserConfig =
+	lptmr_user_config_t LptmrUserConfig =
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
@@ -44,19 +44,37 @@ takeReading()
     };
 
     // Initialize LPTMR
-    LPTMR_DRV_Init(LPTMR_INSTANCE,&lptmrUserConfig,&gLPTMRState);
+    lptmr_status_t status = LPTMR_DRV_Init(LPTMR_INSTANCE,&LptmrUserConfig,&gLPTMRState);
+
+    if (status != kStatus_LPTMR_SUCCESS)
+    {
+    	SEGGER_RTT_printf(0, "%dnitialiser did not work\n", 1);
+    	return 0;
+    }
+
 
     // Set the timer period for 250 milliseconds
-    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
+    //LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
     // Specify the callback function when a LPTMR interrupt occurs
-    LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+    //LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
-    LPTMR_DRV_Start(LPTMR_INSTANCE);
+    status = LPTMR_DRV_Start(LPTMR_INSTANCE);
+
+    if (status != kStatus_LPTMR_SUCCESS)
+    {
+    	SEGGER_RTT_printf(0, "%d Starter did not work\n", 1);
+    	return 0;
+    }
 
     OSA_TimeDelay(1000);
 
-    LPTMR_DRV_Stop(LPTMR_INSTANCE);
+    status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
+    if (status != kStatus_LPTMR_SUCCESS)
+    {
+    	SEGGER_RTT_printf(0, "%d Stopper did not work\n", 1);
+    	return 0;
+    }
 
 	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
