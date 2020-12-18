@@ -72,9 +72,9 @@ takeReading()
     	return 0;
     }
 
-    OSA_TimeDelay(1);
+    //OSA_TimeDelay(1);
 
-    SEGGER_RTT_printf(0, "%d time delay passed\n", 4);
+    
 
     status = LPTMR_DRV_Stop(LPTMR_INSTANCE);
     if (status != kStatus_LPTMR_Success)
@@ -83,9 +83,12 @@ takeReading()
     	return 0;
     }
 
+
     SEGGER_RTT_printf(0, "%d time stopped\n", 1);
 
 	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
+
+	SEGGER_RTT_printf(0, "%dtime received\n", 1);
 
 
 
