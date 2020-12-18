@@ -31,6 +31,7 @@ void lptmr_isr_callback(void)
 #define HWTIMER_LL_DEVIF kSystickDevif
 #define HWTIMER_LL_ID 0
 #define HWTIMER_PERIOD 1000000
+#define HWTIMER_ISR_PRIOR 5
 
 extern const hwtimer_devif_t kSystickDevif;
 extern const hwtimer_devif_t kPitDevif;
@@ -194,7 +195,7 @@ takeReading()
 
 	SEGGER_RTT_printf(0,"Commence Initialisation\n");
 
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL))
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, HWTIMER_ISR_PRIOR, NULL))
 	{
 		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
 	}
