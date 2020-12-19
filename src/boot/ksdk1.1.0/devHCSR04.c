@@ -63,7 +63,7 @@ takeReading()
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = kClockLptmrSrcMcgIrClk,
+        .prescalerClockSource = kClockLptmrSrcEr32kClk,
         .isInterruptEnabled = true
     };
 
@@ -82,7 +82,7 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,1000000);
+    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
     SEGGER_RTT_printf(0, "Timer Period Set!\n");
 
