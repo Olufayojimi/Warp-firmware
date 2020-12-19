@@ -81,10 +81,10 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    //LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
+    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
 
-    //LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+    LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
     
 
