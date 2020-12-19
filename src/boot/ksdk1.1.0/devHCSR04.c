@@ -82,7 +82,7 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
+    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,1000000);
 
     SEGGER_RTT_printf(0, "Timer Period Set!\n");
 
@@ -104,6 +104,8 @@ takeReading()
     //OSA_TimeDelay(1);
 
     uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
+
+    SEGGER_RTT_printf(0, "First time received \n");
 
     while (time < 1)
     {
