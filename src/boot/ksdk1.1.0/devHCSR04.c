@@ -3,7 +3,7 @@
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
 #include "fsl_lptmr_driver.h"
-#include "fsl_hwtimer.h"
+//#include "fsl_hwtimer.h"
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
@@ -27,7 +27,7 @@ void lptmr_isr_callback(void)
 }
 
 
-
+/*
 #define HWTIMER_LL_DEVIF kSystickDevif
 #define HWTIMER_LL_ID 0
 #define HWTIMER_PERIOD 1000000
@@ -36,7 +36,7 @@ void lptmr_isr_callback(void)
 extern const hwtimer_devif_t kSystickDevif;
 extern const hwtimer_devif_t kPitDevif;
 
-
+*/
 
 hwtimer_t hwtimer;
 
