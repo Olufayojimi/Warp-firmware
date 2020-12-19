@@ -62,7 +62,7 @@ takeReading()
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
-        .prescalerClockSource = kClockLptmrSrcMcgIrClk, // use 1kHz Low Power Clock
+        .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
         .isInterruptEnabled = true
     };
 
@@ -81,9 +81,10 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
+    //LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
-    LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+
+    //LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
     
 
