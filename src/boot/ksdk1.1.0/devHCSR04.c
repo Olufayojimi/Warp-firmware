@@ -10,7 +10,7 @@
 #include "warp.h"
 #include "devHCSR04.h"
 
-/*
+
 static void dummy_handler(void){};
 static void (*tick_handler)(void) = &dummy_handler;
 
@@ -25,7 +25,7 @@ void lptmr_isr_callback(void)
     (*tick_handler)();
     // printf("%d ",gLPTMR_counter);
 }
-*/
+
 
 
 #define HWTIMER_LL_DEVIF kSystickDevif
@@ -51,7 +51,7 @@ enum
 int
 takeReading()
 {
-	/*
+	
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
 	
@@ -62,8 +62,7 @@ takeReading()
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
-        //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = 0x00,
+        .prescalerClockSource = kClockLptmrSrcMcgIrClk, // use 1kHz Low Power Clock
         .isInterruptEnabled = true
     };
 
@@ -193,6 +192,8 @@ takeReading()
 	return distance;
 	*/
 
+	/*
+
 	SEGGER_RTT_printf(0,"Commence Initialisation\n");
 
 	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, HWTIMER_ISR_PRIOR, NULL))
@@ -231,12 +232,13 @@ takeReading()
     }
 
     SEGGER_RTT_printf(0,"timer stopped\n");
+    */
 
     SEGGER_RTT_printf(0, "%d\n", time);
 	return 1;
 }
 
-/*
+
 
 void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
 
@@ -251,4 +253,4 @@ void hal_tick_set_handler(void (*handler)(void)) { //this will get called every 
 int hal_tick_get_tick_period_in_ms(void){
     return 250;
 }
-*/
+
