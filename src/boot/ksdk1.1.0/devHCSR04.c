@@ -82,7 +82,7 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
+    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,1000000);
 
     SEGGER_RTT_printf(0, "Timer Period Set!\n");
 
