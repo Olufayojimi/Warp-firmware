@@ -84,10 +84,12 @@ takeReading()
     // Set the timer period for 250 milliseconds
     LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,250000);
 
+    SEGGER_RTT_printf(0, "Timer Period Set!\n");
+
 
     LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
 
-    
+    SEGGER_RTT_printf(0, "Callback declared!\n");
 
     status = LPTMR_DRV_Start(LPTMR_INSTANCE);
 
