@@ -2533,10 +2533,9 @@ main(void)
 				#endif
 				break;
 				*/
-				for (int i = 0; i < 1; i++)
-				{
-					int a = takeReading();
-				}
+				enableI2Cpins(menuI2cPullupValue);
+				int a = takeReading();
+				
 				break;
 			}
 
