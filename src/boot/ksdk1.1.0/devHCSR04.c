@@ -120,7 +120,7 @@ takeReading()
 
     SEGGER_RTT_printf(0, "First time received: %d \n", time);
 
-    while (time < 1)
+    while (time < 1025)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
     }
