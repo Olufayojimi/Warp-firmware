@@ -55,15 +55,15 @@ takeReading()
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
 	
-	/*
+	
 
 	lptmr_user_config_t LptmrUserConfig =
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
-        .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        //.prescalerClockSource = kClockLptmrSrcMcgIrClk,
+        //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
+        .prescalerClockSource = kClockLptmrSrcOsc0erClk,
         //.prescalerValue = 0x0U,
         .isInterruptEnabled = false
     };
@@ -153,11 +153,11 @@ takeReading()
     
 	SEGGER_RTT_printf(0, "%dtime received\n", 1);
 
-	*/
+	
 
 
 
-    
+    /*
 
 	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
 	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
@@ -268,7 +268,7 @@ takeReading()
     SEGGER_RTT_printf(0,"timer stopped\n");
     */
 
-    SEGGER_RTT_printf(0, "%d, %d\n", counter, counter);
+    SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
 	return 1;
 }
 
