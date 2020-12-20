@@ -2533,7 +2533,7 @@ main(void)
 				#endif
 				break;
 				*/
-				enableI2Cpins(menuI2cPullupValue);
+				enableI2Cpins(1000000);
 				int a = takeReading();
 				
 				break;
