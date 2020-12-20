@@ -64,7 +64,7 @@ takeReading()
         .prescalerEnable = true, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
         .prescalerClockSource = kClockLptmrSrcEr32kClk,
-        .prescalerValue = 0x0U,
+        .prescalerValue = 0x3U,
         .isInterruptEnabled = false
     };
 
