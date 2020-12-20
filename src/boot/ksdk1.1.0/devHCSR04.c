@@ -83,7 +83,7 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    status = LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,1000000);
+    status = LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,5000);
 
     if (status != kStatus_LPTMR_Success)
     {
