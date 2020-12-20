@@ -55,7 +55,7 @@ takeReading()
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
 	
-
+	/*
 
 	lptmr_user_config_t LptmrUserConfig =
     {
@@ -151,15 +151,13 @@ takeReading()
 
     SEGGER_RTT_printf(0, "%d time stopped\n", 1);
     
-
-
-	
-
 	SEGGER_RTT_printf(0, "%dtime received\n", 1);
 
+	*/
 
 
-    /*
+
+    
 
 	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
 	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
@@ -184,17 +182,19 @@ takeReading()
 	}
 
 	// Start counting
-    LPTMR_DRV_Start(LPTMR_INSTANCE);
+    //LPTMR_DRV_Start(LPTMR_INSTANCE);
+    int counter = 0;
 
 	while (a == 1) 
 	{
 		a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+		counter += 1;
 	}
 
 	//Stop Counting
-	LPTMR_DRV_Stop(LPTMR_INSTANCE);
+	//LPTMR_DRV_Stop(LPTMR_INSTANCE);
 
-	uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
+	//uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
 
 	//OSA_TimeDelay(1000);
@@ -268,7 +268,7 @@ takeReading()
     SEGGER_RTT_printf(0,"timer stopped\n");
     */
 
-    SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
+    SEGGER_RTT_printf(0, "%d, %d\n", counter, counter);
 	return 1;
 }
 
