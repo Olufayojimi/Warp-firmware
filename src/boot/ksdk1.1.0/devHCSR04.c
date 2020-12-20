@@ -62,8 +62,8 @@ takeReading()
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = false, // bypass prescaler
-        //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = kClockLptmrSrcMcgIrClk,
+        .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
+        //.prescalerClockSource = kClockLptmrSrcMcgIrClk,
         //.prescalerValue = 0x0U,
         .isInterruptEnabled = false
     };
