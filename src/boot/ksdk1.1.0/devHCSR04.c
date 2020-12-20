@@ -64,7 +64,7 @@ takeReading()
         .prescalerEnable = true, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
         .prescalerClockSource = kClockLptmrSrcMcgIrClk,
-        .prescalerValue = 4u,
+        .prescalerValue = 0x0U,
         .isInterruptEnabled = false
     };
 
@@ -118,9 +118,11 @@ takeReading()
 
     uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
+    uint32_t a = time;
+
     SEGGER_RTT_printf(0, "First time received: %d \n", time);
 
-    while (time < 1025)
+    while (time < a)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
     }
