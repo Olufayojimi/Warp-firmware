@@ -61,10 +61,11 @@ takeReading()
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
-        .prescalerEnable = false, // bypass prescaler
-        .prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        //.prescalerClockSource = kClockLptmrSrcOsc0erClk,
-        .isInterruptEnabled = true
+        .prescalerEnable = true, // bypass prescaler
+        //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
+        .prescalerClockSource = kClockLptmrSrcOsc0erClk,
+        .lptmr_prescaler_value_t = 0u,
+        .isInterruptEnabled = false
     };
 
     SEGGER_RTT_printf(0, "%dst stage passed\n", 1);
