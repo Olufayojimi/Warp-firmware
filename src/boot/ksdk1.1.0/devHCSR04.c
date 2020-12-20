@@ -63,7 +63,7 @@ takeReading()
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = true, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = kClockLptmrSrcEr32kClk,
+        .prescalerClockSource = kClockLptmrSrcMcgIrClk,
         .prescalerValue = 4u,
         .isInterruptEnabled = false
     };
@@ -83,12 +83,24 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,1000000);
+    status = LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,1000000);
+
+    if (status != kStatus_LPTMR_Success)
+    {
+    	SEGGER_RTT_printf(0, "Timer Period not Set!\n");
+    	return 0;
+    }
 
     SEGGER_RTT_printf(0, "Timer Period Set!\n");
 
 
-    LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+    status = LPTMR_DRV_InstallCallback(LPTMR_INSTANCE,lptmr_isr_callback);
+
+     if (status != kStatus_LPTMR_Success)
+    {
+    	SEGGER_RTT_printf(0, "Callback failed!\n");
+    	return 0;
+    }
 
     SEGGER_RTT_printf(0, "Callback declared!\n");
 
