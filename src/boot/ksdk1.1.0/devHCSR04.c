@@ -130,11 +130,14 @@ takeReading()
 
     uint32_t a = time;
 
+    int counter = 0;
+
     SEGGER_RTT_printf(0, "First time received: %d \n", time);
 
     while (time <= a)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
+    	counter += 1;
     }
 
    
@@ -265,7 +268,7 @@ takeReading()
     SEGGER_RTT_printf(0,"timer stopped\n");
     */
 
-    SEGGER_RTT_printf(0, "%d\n", time);
+    SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
 	return 1;
 }
 
