@@ -90,12 +90,12 @@ takeReading()
     	if (status == kStatus_LPTMR_TimerPeriodUsTooSmall)
     	{
     		SEGGER_RTT_printf(0, "Timer Period too small!\n");
-    		return 0
+    		return 0;
     	}
     	else if (status == kStatus_LPTMR_TimerPeriodUsTooLarge)
     	{
     		SEGGER_RTT_printf(0, "Timer Period too large\n");
-    		return 0
+    		return 0;
     	}
     	SEGGER_RTT_printf(0, "Timer Period not Set!\n");
     	return 0;
