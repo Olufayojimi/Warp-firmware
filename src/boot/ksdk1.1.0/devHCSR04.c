@@ -61,10 +61,10 @@ takeReading()
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
-        .prescalerEnable = true, // bypass prescaler
+        .prescalerEnable = false, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
         .prescalerClockSource = kClockLptmrSrcMcgIrClk,
-        .prescalerValue = 0x0U,
+        //.prescalerValue = 0x0U,
         .isInterruptEnabled = false
     };
 
@@ -132,7 +132,7 @@ takeReading()
 
     SEGGER_RTT_printf(0, "First time received: %d \n", time);
 
-    while (time < a)
+    while (time <= a)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
     }
