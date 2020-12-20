@@ -63,7 +63,7 @@ takeReading()
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
         .prescalerEnable = true, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = kClockLptmrSrcOsc0erClk,
+        .prescalerClockSource = kClockLptmrSrcMcgIrClk,
         .prescalerValue = 3u,
         .isInterruptEnabled = false
     };
