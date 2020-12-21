@@ -76,11 +76,11 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	if (hwtimer == NULL)
+	if (&hwtimer == NULL)
 	{
 		SEGGER_RTT_printf(0, "HWtimer is null lool\n");		
 	}
-	
+
 	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL);
 	if (kHwtimerSuccess != code)
     {
