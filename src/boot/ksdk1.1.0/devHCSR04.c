@@ -105,7 +105,7 @@ takeReading()
     	SEGGER_RTT_printf(0, "%d\n", time);
     }
 
-    return 0
+    return 0;
 
 	
 	
