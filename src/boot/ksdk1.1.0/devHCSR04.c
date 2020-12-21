@@ -76,7 +76,7 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	if (&hwtimer == NULL)
+	if (&hwtimer == NULL || &HWTIMER_LL_DEVIF == NULL)
 	{
 		SEGGER_RTT_printf(0, "HWtimer is null lool\n");		
 	}
