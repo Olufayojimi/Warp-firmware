@@ -2,9 +2,9 @@
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
-#include "fsl_lptmr_driver.h"
+//#include "fsl_lptmr_driver.h"
 #include "fsl_hwtimer.h"
-#include "fsl_clock_manager.h"
+//#include "fsl_clock_manager.h"
 
 #define HWTIMER_LL_DEVIF kSystickDevif
 #define HWTIMER_LL_ID 0
@@ -24,7 +24,7 @@ hwtimer_t hwtimer;
 #include "devHCSR04.h"
 
 
-static void dummy_handler(void){};
+/*static void dummy_handler(void){};
 static void (*tick_handler)(void) = &dummy_handler;
 
 #define LPTMR_INSTANCE 0
@@ -38,7 +38,7 @@ void lptmr_isr_callback(void)
     (*tick_handler)();
     // printf("%d ",gLPTMR_counter);
 }
-
+*/
 
 void hwtimer_callback(void *data)
  {
@@ -69,7 +69,7 @@ int
 takeReading()
 {
 	
-	SEGGER_RTT_printf(0, "%d about to start\n", 1);
+	SEGGER_RTT_printf(0, "Starting now\n");
 
 	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL))
     {
