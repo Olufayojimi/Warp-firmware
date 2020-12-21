@@ -92,7 +92,6 @@ takeReading()
 
     SEGGER_RTT_printf(0, "Callback set\n");
 
-    }
     if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
     {
        SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
