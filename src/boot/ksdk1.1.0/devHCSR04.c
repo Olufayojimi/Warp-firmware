@@ -9,8 +9,7 @@
 #include "fsl_clock_manager.h"
 
 #define HWTIMER_LL_DEVIF kSystickDevif
-#define SAMP kPitDevif
-#define HWTIMER_LL_ID 0
+#define HWTIMER_LL_ID 1
 
 #define HWTIMER_ISR_PRIOR 5
 #define HWTIMER_PERIOD 1000
@@ -77,7 +76,7 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &SAMP, HWTIMER_LL_ID, 1, NULL))
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL))
     {
         SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
     }
