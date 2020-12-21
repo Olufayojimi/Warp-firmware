@@ -76,10 +76,9 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	int a = 1;
 
 
-	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, &a);
+	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL);
 	if (kHwtimerSuccess != code)
     {
     	if (code == kHwtimerInvalidInput)
@@ -102,7 +101,7 @@ takeReading()
     	{
     		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Unknown Error\r\n");
     	}
-        return 0;
+        //return 0;
     }
 
     SEGGER_RTT_printf(0, "Initialised\n");
@@ -131,7 +130,7 @@ takeReading()
     	{
     		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Unknown Error\r\n");
     	}
-        return 0;
+        //return 0;
     }
 
     SEGGER_RTT_printf(0, "Period set\n");
@@ -139,7 +138,7 @@ takeReading()
     if (kHwtimerSuccess != HWTIMER_SYS_RegisterCallback(&hwtimer, hwtimer_callback, NULL))
     {
        SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
-       return 0;
+       //return 0;
     }
 
     SEGGER_RTT_printf(0, "Callback set\n");
@@ -147,16 +146,18 @@ takeReading()
     if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
     {
        SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
-       return 0;
+       //return 0;
     }
 
-    SEGGER_RTT_printf(0, "Timer Started\n");
+    int counter = 0;
+    SEGGER_RTT_printf(0, "Timer Started %d\n", counter);
 
 
     while (true)
     {
+    	counter += 1;
     	uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
-    	SEGGER_RTT_printf(0, "%d\n", time);
+    	SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
     }
 
     return 0;
