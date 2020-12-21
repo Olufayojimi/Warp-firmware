@@ -1792,19 +1792,20 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
                 0x00000000000067a4       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.c.obj
                                          0x18 (size before relaxing)
  .rodata.takeReading.str1.1
-                0x00000000000067b8      0x11e CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
-                                        0x126 (size before relaxing)
+                0x00000000000067b8      0x11b CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj
+                                        0x11f (size before relaxing)
  .rodata.readSensorRegisterMMA8451Q.str1.1
-                0x00000000000068d6        0x2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
+                0x00000000000068d3        0x2 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
  .rodata.printSensorDataMMA8451Q.str1.1
-                0x00000000000068d6       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
+                0x00000000000068d3       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.c.obj
                                          0x1c (size before relaxing)
  .rodata._DoInit.str1.1
-                0x00000000000068e6       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c.obj
+                0x00000000000068e3       0x14 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.c.obj
  .rodata._aV2C.4388
-                0x00000000000068fa       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.obj
+                0x00000000000068f7       0x10 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT_printf.c.obj
  .rodata.portGateTable
-                0x000000000000690a        0x2 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_MKL03Z4.c.obj)
+                0x0000000000006907        0x2 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_clock_MKL03Z4.c.obj)
+ *fill*         0x0000000000006909        0x3 
  .rodata.g_i2cBaseAddr
                 0x000000000000690c        0x4 ../../../../lib/ksdk_platform_lib/armgcc/KL03Z4/release/libksdk_platform.a(fsl_i2c_common.c.obj)
                 0x000000000000690c                g_i2cBaseAddr
