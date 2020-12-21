@@ -137,7 +137,7 @@ takeReading()
 
     SEGGER_RTT_printf(0, "First time received: %d %d \n", time);
 
-    for (int i=0; i < 5; i++)
+    while (true)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
     	SEGGER_RTT_printf(0, "%d, %d\n", time);
