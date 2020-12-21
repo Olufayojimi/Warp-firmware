@@ -61,9 +61,9 @@ takeReading()
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
         .freeRunningEnable = false, // When hit compare value, set counter back to zero
-        .prescalerEnable = true, // bypass prescaler
+        .prescalerEnable = false, // bypass prescaler
         //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = kClockLptmrSrcEr32kClk,
+        .prescalerClockSource = kClockLptmrSrcMcgIrClk,
         .prescalerValue = 0x3U,
         .isInterruptEnabled = false
     };
@@ -83,7 +83,7 @@ takeReading()
 
 
     // Set the timer period for 250 milliseconds
-    status = LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,5000);
+    status = LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,10000);
 
     if (status != kStatus_LPTMR_Success)
     {
@@ -134,10 +134,12 @@ takeReading()
 
     SEGGER_RTT_printf(0, "First time received: %d \n", time);
 
-    while (time <= 3000)
+    while (int i=0; i < 5; i++)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
     	counter += 1;
+    	SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
+
     }
 
    
@@ -152,6 +154,7 @@ takeReading()
     SEGGER_RTT_printf(0, "%d time stopped\n", 1);
     
 	SEGGER_RTT_printf(0, "%dtime received\n", 1);
+	return 1
 
 	
 
@@ -268,8 +271,8 @@ takeReading()
     SEGGER_RTT_printf(0,"timer stopped\n");
     */
 
-    SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
-	return 1;
+    //SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
+	//return 1;
 }
 
 
