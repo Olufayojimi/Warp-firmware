@@ -77,7 +77,7 @@ takeReading()
 	SEGGER_RTT_printf(0, "Starting now\n");
 
 
-	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, &HWTIMER_ISR_PRIOR);
+	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, HWTIMER_ISR_PRIOR);
 	if (kHwtimerSuccess != code)
     {
     	if (code == kHwtimerInvalidInput)
