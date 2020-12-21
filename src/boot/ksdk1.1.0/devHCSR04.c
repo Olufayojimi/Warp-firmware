@@ -61,13 +61,13 @@ void hwtimer_callback(void* data)
  }
 
 
-/*
+
 enum
 {
 	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 10),
 	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
 };
-*/
+
 
 
 int
@@ -75,17 +75,59 @@ takeReading()
 {
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
-
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL))
+	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL);
+	if (kHwtimerSuccess != code)
     {
-        SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
+    	if (code == kHwtimerInvalidInput)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Invalid input\r\n");
+    	}
+    	else if (code == kHwtimerInvalidPointer)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Invalid pointer\r\n");
+    	}
+    	else if (code == kHwtimerClockManagerError)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Clock Manager\r\n");
+    	}
+    	else if (code == kHwtimerRegisterHandlerError)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Register Handler\r\n");
+    	}
+    	else
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Unknown Error\r\n");
+    	}
+        return 0;
     }
 
     SEGGER_RTT_printf(0, "Initialised\n");
 
-    if (kHwtimerSuccess != HWTIMER_SYS_SetPeriod(&hwtimer,kMcgFllClock, HWTIMER_PERIOD))
+    code = HWTIMER_SYS_SetPeriod(&hwtimer,kMcgFllClock, HWTIMER_PERIOD);
+
+    if (kHwtimerSuccess != code)
     {
-        SEGGER_RTT_printf(0,"\r\nError: hwtimer set period.\r\n");
+        if (code == kHwtimerInvalidInput)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Invalid input\r\n");
+    	}
+    	else if (code == kHwtimerInvalidPointer)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Invalid pointer\r\n");
+    	}
+    	else if (code == kHwtimerClockManagerError)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Clock Manager\r\n");
+    	}
+    	else if (code == kHwtimerRegisterHandlerError)
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Register Handler\r\n");
+    	}
+    	else
+    	{
+    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Unknown Error\r\n");
+    	}
+        return 0;
     }
 
     SEGGER_RTT_printf(0, "Period set\n");
@@ -93,6 +135,7 @@ takeReading()
     if (kHwtimerSuccess != HWTIMER_SYS_RegisterCallback(&hwtimer, hwtimer_callback, NULL))
     {
        SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
+       return 0;
     }
 
     SEGGER_RTT_printf(0, "Callback set\n");
@@ -100,9 +143,11 @@ takeReading()
     if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
     {
        SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
+       return 0;
     }
 
     SEGGER_RTT_printf(0, "Timer Started\n");
+
 
     while (true)
     {
