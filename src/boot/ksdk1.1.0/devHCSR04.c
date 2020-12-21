@@ -3,7 +3,22 @@
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
 #include "fsl_lptmr_driver.h"
-//#include "fsl_hwtimer.h"
+#include "fsl_hwtimer.h"
+#include "fsl_clock_manager.h"
+
+#define HWTIMER_LL_DEVIF kSystickDevif
+#define HWTIMER_LL_ID 0
+
+#define HWTIMER_ISR_PRIOR 5
+#define HWTIMER_PERIOD 1
+#define HWTIMER_DOTS_PER_LINE 40
+#define HWTIMER_LINES_COUNT 2
+
+#include "hal_compat.h"
+
+extern const hwtimer_devif_t kSystickDevif;
+extern const hwtimer_devif_t kPitDevif;
+hwtimer_t hwtimer;
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
@@ -27,18 +42,22 @@ void lptmr_isr_callback(void)
 }
 
 
-/*
-#define HWTIMER_LL_DEVIF kSystickDevif
-#define HWTIMER_LL_ID 0
-#define HWTIMER_PERIOD 1000000
-#define HWTIMER_ISR_PRIOR 5
-
-extern const hwtimer_devif_t kSystickDevif;
-extern const hwtimer_devif_t kPitDevif;
-
-*/
-
-//hwtimer_t hwtimer;
+void hwtimer_callback(void *data)
+ {
+    SEGGER_RTT_printf(0,".");
+    if ((HWTIMER_SYS_GetTicks(&hwtimer) % HWTIMER_DOTS_PER_LINE) == 0)
+    {
+        SEGGER_RTT_printf(0,"\r\n");
+    }
+    if ((HWTIMER_SYS_GetTicks(&hwtimer) % (HWTIMER_LINES_COUNT * HWTIMER_DOTS_PER_LINE)) == 0)
+    {
+        if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
+        {
+            SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
+    	}
+        SEGGER_RTT_printf(0,"End\r\n");
+ 	}
+ }
 
 enum
 {
@@ -54,9 +73,46 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "%d about to start\n", 1);
 
-	
-	
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL))
+    {
+        SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
+    }
 
+    SEGGER_RTT_printf(0, "Initialised\n");
+
+    if (kHwtimerSuccess != HWTIMER_SYS_SetPeriod(&hwtimer,kMcgFllClock, HWTIMER_PERIOD))
+    {
+        SEGGER_RTT_printf(0,"\r\nError: hwtimer set period.\r\n");
+    }
+
+    SEGGER_RTT_printf(0, "Period set\n");
+
+    if (kHwtimerSuccess != HWTIMER_SYS_RegisterCallback(&hwtimer, hwtimer_callback, NULL))
+    {
+       SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
+    }
+
+    SEGGER_RTT_printf(0, "Callback set\n");
+
+    }
+    if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
+    {
+       SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
+    }
+
+    SEGGER_RTT_printf(0, "Timer Started\n");
+
+    while (true)
+    {
+    	uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
+    	SEGGER_RTT_printf(0, "%d\n", time);
+    }
+
+    return 0
+
+	
+	
+	/*
 	lptmr_user_config_t LptmrUserConfig =
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
