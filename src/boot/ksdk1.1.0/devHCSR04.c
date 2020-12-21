@@ -71,7 +71,7 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL))
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 0, NULL))
     {
         SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
     }
