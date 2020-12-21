@@ -61,12 +61,13 @@ void hwtimer_callback(void* data)
  }
 
 
+/*
 enum
 {
 	kHCSR04PinEcho		= GPIO_MAKE_PIN(HW_GPIOB, 10),
 	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
 };
-
+*/
 
 
 int
@@ -74,8 +75,6 @@ takeReading()
 {
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
-
-	NVIC_SetPriority(SysTick_IRQn, HWTIMER_ISR_PRIOR);
 
 	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL))
     {
