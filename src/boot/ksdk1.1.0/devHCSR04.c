@@ -330,7 +330,7 @@ takeReading()
 	//return 1;
 }
 
-
+/*
 
 void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
 
@@ -345,4 +345,4 @@ void hal_tick_set_handler(void (*handler)(void)) { //this will get called every 
 int hal_tick_get_tick_period_in_ms(void){
     return 250;
 }
-
+*/
