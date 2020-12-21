@@ -14,8 +14,6 @@
 #define HWTIMER_DOTS_PER_LINE 40
 #define HWTIMER_LINES_COUNT 2
 
-#include "hal_compat.h"
-
 extern const hwtimer_devif_t kSystickDevif;
 extern const hwtimer_devif_t kPitDevif;
 hwtimer_t hwtimer;
