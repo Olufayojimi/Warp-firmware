@@ -18,8 +18,6 @@ static void (*tick_handler)(void) = &dummy_handler;
 
 static lptmr_state_t gLPTMRState;
 
-static lptmr_state_t gLPTMRState1;
-
 
 void lptmr_isr_callback(void)
 {
@@ -70,23 +68,13 @@ takeReading()
         .isInterruptEnabled = false
     };
 
-    lptmr_user_config_t LptmrUserConfig1 =
-    {
-        .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
-        .freeRunningEnable = false, // When hit compare value, set counter back to zero
-        .prescalerEnable = false, // bypass prescaler
-        //.prescalerClockSource = kClockLptmrSrcLpoClk, // use 1kHz Low Power Clock
-        .prescalerClockSource = kClockLptmrSrcMcgIrClk,
-        .prescalerValue = 0x3U,
-        .isInterruptEnabled = false
-    };
 
     SEGGER_RTT_printf(0, "%dst stage passed\n", 1);
 
     // Initialize LPTMR
     lptmr_status_t status = LPTMR_DRV_Init(LPTMR_INSTANCE,&LptmrUserConfig,&gLPTMRState);
 
-    lptmr_status_t status1 = LPTMR_DRV_Init(1,&LptmrUserConfig1,&gLPTMRState1);
+    
 
     SEGGER_RTT_printf(0, "%dnd stage passed\n", 2);
 
@@ -99,7 +87,6 @@ takeReading()
 
     // Set the timer period for 250 milliseconds
     status = LPTMR_DRV_SetTimerPeriodUs(LPTMR_INSTANCE,10000);
-    status1 = LPTMR_DRV_SetTimerPeriodUs(1,10000);
 
     if (status != kStatus_LPTMR_Success)
     {
@@ -144,19 +131,16 @@ takeReading()
 
     uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
-    uint32_t time1 = LPTMR_DRV_GetCurrentTimeUs(1);
-
     uint32_t a = time;
 
     int counter = 0;
 
-    SEGGER_RTT_printf(0, "First time received: %d %d \n", time, time1);
+    SEGGER_RTT_printf(0, "First time received: %d %d \n", time);
 
     for (int i=0; i < 5; i++)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
-    	time1 = LPTMR_DRV_GetCurrentTimeUs(1);
-    	SEGGER_RTT_printf(0, "%d, %d\n", time, time1);
+    	SEGGER_RTT_printf(0, "%d, %d\n", time);
 
     }
 
