@@ -1,22 +1,26 @@
 #include <stdint.h>
+#include <stdio.h>
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
 //#include "fsl_lptmr_driver.h"
 #include "fsl_hwtimer.h"
-//#include "fsl_clock_manager.h"
+#include "board.h"
+#include "fsl_debug_console.h"
+#include "fsl_clock_manager.h"
 
 #define HWTIMER_LL_DEVIF kSystickDevif
 #define HWTIMER_LL_ID 0
 
 #define HWTIMER_ISR_PRIOR 5
-#define HWTIMER_PERIOD 1
+#define HWTIMER_PERIOD 1000
 #define HWTIMER_DOTS_PER_LINE 40
-#define HWTIMER_LINES_COUNT 2
+#define HWTIMER_LINES_COUNT 200
 
 extern const hwtimer_devif_t kSystickDevif;
 extern const hwtimer_devif_t kPitDevif;
 hwtimer_t hwtimer;
+static volatile uint16_t pointMark=0U;
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
@@ -40,12 +44,12 @@ void lptmr_isr_callback(void)
 }
 */
 
-void hwtimer_callback(void *data)
+void hwtimer_callback(void* data)
  {
     SEGGER_RTT_printf(0,".");
     if ((HWTIMER_SYS_GetTicks(&hwtimer) % HWTIMER_DOTS_PER_LINE) == 0)
     {
-        SEGGER_RTT_printf(0,"\r\n");
+        SEGGER_RTT_printf(0,"yessir, callback\r\n");
     }
     if ((HWTIMER_SYS_GetTicks(&hwtimer) % (HWTIMER_LINES_COUNT * HWTIMER_DOTS_PER_LINE)) == 0)
     {
@@ -56,6 +60,7 @@ void hwtimer_callback(void *data)
         SEGGER_RTT_printf(0,"End\r\n");
  	}
  }
+
 
 enum
 {
@@ -71,7 +76,9 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	if (kHwtimerSuccess != HWTIMER_SYS_Init(hwtimer, HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL))
+	NVIC_SetPriority(SysTick_IRQn, HWTIMER_ISR_PRIOR);
+
+	if (kHwtimerSuccess != HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL))
     {
         SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization.\r\n");
     }
