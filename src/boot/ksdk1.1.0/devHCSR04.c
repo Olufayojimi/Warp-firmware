@@ -135,12 +135,12 @@ takeReading()
 
     int counter = 0;
 
-    SEGGER_RTT_printf(0, "First time received: %d %d \n", time);
+    SEGGER_RTT_printf(0, "First time received: %d \n", time);
 
     while (true)
     {
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
-    	SEGGER_RTT_printf(0, "%d, %d\n", time);
+    	SEGGER_RTT_printf(0, "%d\n", time);
 
     }
 
