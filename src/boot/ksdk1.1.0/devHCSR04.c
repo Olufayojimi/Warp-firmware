@@ -11,7 +11,7 @@
 #define HWTIMER_LL_DEVIF kSystickDevif
 #define HWTIMER_LL_ID 1
 
-#define HWTIMER_ISR_PRIOR 0
+#define HWTIMER_ISR_PRIOR 5
 #define HWTIMER_PERIOD 1
 #define HWTIMER_DOTS_PER_LINE 40
 #define HWTIMER_LINES_COUNT 200
@@ -76,12 +76,8 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-	if (&hwtimer == NULL || &HWTIMER_LL_DEVIF == NULL)
-	{
-		SEGGER_RTT_printf(0, "HWtimer is null lool\n");		
-	}
 
-	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 1, NULL);
+	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, &HWTIMER_ISR_PRIOR);
 	if (kHwtimerSuccess != code)
     {
     	if (code == kHwtimerInvalidInput)
