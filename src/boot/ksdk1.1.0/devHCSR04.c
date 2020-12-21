@@ -9,7 +9,7 @@
 #include "fsl_clock_manager.h"
 
 #define HWTIMER_LL_DEVIF kSystickDevif
-#define HWTIMER_LL_ID 0
+#define HWTIMER_LL_ID 2
 
 #define HWTIMER_ISR_PRIOR 5
 #define HWTIMER_PERIOD 1
