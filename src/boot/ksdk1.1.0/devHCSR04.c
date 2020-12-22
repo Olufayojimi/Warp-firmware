@@ -90,7 +90,7 @@ takeReading()
     {
     	if (code == kHwtimerInvalidInput)
     	{
-    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Invalid input\r\n");
+    		//SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Invalid input\r\n");
     	}
     	else if (code == kHwtimerInvalidPointer)
     	{
@@ -127,7 +127,7 @@ takeReading()
     	}
     	else if (code == kHwtimerClockManagerError)
     	{
-    		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Clock Manager\r\n");
+    		//SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Clock Manager\r\n");
     	}
     	else if (code == kHwtimerRegisterHandlerError)
     	{
@@ -140,70 +140,64 @@ takeReading()
         //return 0;
     }
 
-    SEGGER_RTT_printf(0, "Period set\n");
+    //SEGGER_RTT_printf(0, "Period set\n");
 
     if (kHwtimerSuccess != HWTIMER_SYS_RegisterCallback(&hwtimer, hwtimer_callback, NULL))
     {
        SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
        //return 0;
     }
-    SEGGER_RTT_printf(0, "Callback set\n");
+    //SEGGER_RTT_printf(0, "Callback set\n");
 
-    GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-	OSA_TimeDelay(5);
-
-
-	// Set the trigger pin high for 10 microseconds
-	GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
-	OSA_TimeDelay(10);
-	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-	//int counter;
-
-	//start timer
-
-	uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
-
-	while (a == 0) 
-	{
-		a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
-	}
-
-    if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
+    for (int i=0; i < 10; i++)
     {
-       SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
-       //return 0;
+    	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+		OSA_TimeDelay(5);
+
+
+		// Set the trigger pin high for 10 microseconds
+		GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
+		OSA_TimeDelay(10);
+		GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+		//int counter;
+
+		//start timer
+
+		uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+
+		while (a == 0) 
+		{
+			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+		}
+
+    	if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
+    	{
+       		//SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
+       		//return 0;
+    	}
+
+    	int counter = 0;
+    	//SEGGER_RTT_printf(0, "Timer Started %d\n", counter);
+
+
+    	while (a == 1) 
+		{
+			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
+			counter += 1;
+			uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
+		}
+
+		SEGGER_RTT_printf(0, "%d\n", counter);
+
+		if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
+    	{
+        	SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
+    	}
+
+    	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
 
-    int counter = 0;
-    SEGGER_RTT_printf(0, "Timer Started %d\n", counter);
-
-    /*
-    while (true)
-    {
-    	counter += 1;
-    	uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
-    	SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
-    }
-    */
-
-    while (a == 1) 
-	{
-		a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
-		counter += 1;
-		uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
-	}
-
-	SEGGER_RTT_printf(0, "%d\n", counter);
-
-	if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
-    {
-         SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
-    }
-
-    SEGGER_RTT_printf(0,"timer stopped\n");
-
-
-
+    
     return 0;
 
 	
