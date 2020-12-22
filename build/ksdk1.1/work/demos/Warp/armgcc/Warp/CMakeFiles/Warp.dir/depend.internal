@@ -223,6 +223,7 @@ CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/s
  ../../../../platform/osa/inc/fsl_os_abstraction_ucosiii.h
  ../../../../platform/startup/MKL03Z4/system_MKL03Z4.h
  ../../../../platform/system/inc/fsl_clock_manager.h
+ ../../../../platform/system/inc/fsl_hwtimer.h
  ../../../../platform/system/src/clock/MKL03Z4/fsl_clock_MKL03Z4.h
  ../../../../platform/utilities/inc/fsl_debug_console.h
  /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h

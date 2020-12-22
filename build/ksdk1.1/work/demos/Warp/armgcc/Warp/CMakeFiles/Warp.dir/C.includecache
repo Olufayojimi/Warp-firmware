@@ -768,6 +768,12 @@ fsl_sim_hal.h
 ../src/clock/MKV10Z7/fsl_clock_MKV10Z7.h
 ../../../../platform/system/src/clock/MKV10Z7/fsl_clock_MKV10Z7.h
 
+../../../../platform/system/inc/fsl_hwtimer.h
+stdint.h
+-
+fsl_clock_manager.h
+../../../../platform/system/inc/fsl_clock_manager.h
+
 ../../../../platform/system/inc/fsl_interrupt_manager.h
 stdint.h
 -
@@ -985,6 +991,8 @@ fsl_lptmr_driver.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_lptmr_driver.h
 fsl_lptmr_hal.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_lptmr_hal.h
+fsl_hwtimer.h
+/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_hwtimer.h
 fsl_debug_console.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/fsl_debug_console.h
 fsl_clock_manager.h
