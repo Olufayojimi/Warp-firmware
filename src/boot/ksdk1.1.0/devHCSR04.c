@@ -185,7 +185,7 @@ takeReading()
     	SEGGER_RTT_printf(0, "%d, %d\n", time, counter);
     }
     */
-    
+
     while (a == 1) 
 	{
 		a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
@@ -194,6 +194,15 @@ takeReading()
 	}
 
 	SEGGER_RTT_printf(0, "%d\n", counter);
+
+	if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
+    {
+         SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
+    }
+
+    SEGGER_RTT_printf(0,"timer stopped\n");
+
+
 
     return 0;
 
