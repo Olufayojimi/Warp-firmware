@@ -5,7 +5,7 @@
 #include "fsl_port_hal.h"
 #include "fsl_lptmr_driver.h"
 #include "fsl_lptmr_hal.h"
-//#include "fsl_hwtimer.h"
+#include "fsl_hwtimer.h"
 #include "fsl_debug_console.h"
 #include "fsl_clock_manager.h"
 
@@ -17,16 +17,16 @@
 #define HWTIMER_DOTS_PER_LINE 40
 #define HWTIMER_LINES_COUNT 200
 
-//extern const hwtimer_devif_t kSystickDevif;
-//extern const hwtimer_devif_t kPitDevif;
-//hwtimer_t hwtimer;
+extern const hwtimer_devif_t kSystickDevif;
+extern const hwtimer_devif_t kPitDevif;
+hwtimer_t hwtimer;
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
 #include "warp.h"
 #include "devHCSR04.h"
 
-
+/*
 static void dummy_handler(void){};
 static void (*tick_handler)(void) = &dummy_handler;
 
@@ -41,8 +41,9 @@ void lptmr_isr_callback(void)
     (*tick_handler)();
     // printf("%d ",gLPTMR_counter);
 }
+*/
 
-/*
+
 
 void hwtimer_callback(void* data)
  {
@@ -61,7 +62,7 @@ void hwtimer_callback(void* data)
  	}
  }
 
-*/
+
 
 enum
 {
