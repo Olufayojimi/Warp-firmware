@@ -13,7 +13,7 @@
 #define HWTIMER_LL_ID 1
 
 #define HWTIMER_ISR_PRIOR 5
-#define HWTIMER_PERIOD 1
+#define HWTIMER_PERIOD 100
 #define HWTIMER_DOTS_PER_LINE 40
 #define HWTIMER_LINES_COUNT 200
 
@@ -77,7 +77,7 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-/*
+
 
 	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL);
 	if (kHwtimerSuccess != code)
@@ -163,9 +163,9 @@ takeReading()
 
     return 0;
 
-	*/
 	
 	
+	/*
 	lptmr_user_config_t LptmrUserConfig =
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
