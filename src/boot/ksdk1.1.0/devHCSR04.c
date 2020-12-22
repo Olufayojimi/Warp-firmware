@@ -16,10 +16,9 @@
 #define HWTIMER_DOTS_PER_LINE 40
 #define HWTIMER_LINES_COUNT 200
 
-extern const hwtimer_devif_t kSystickDevif;
-extern const hwtimer_devif_t kPitDevif;
-hwtimer_t hwtimer;
-static volatile uint16_t pointMark=0U;
+//extern const hwtimer_devif_t kSystickDevif;
+//extern const hwtimer_devif_t kPitDevif;
+//hwtimer_t hwtimer;
 
 #include "SEGGER_RTT.h"
 #include "gpio_pins.h"
@@ -27,7 +26,7 @@ static volatile uint16_t pointMark=0U;
 #include "devHCSR04.h"
 
 
-/*static void dummy_handler(void){};
+static void dummy_handler(void){};
 static void (*tick_handler)(void) = &dummy_handler;
 
 #define LPTMR_INSTANCE 0
@@ -41,7 +40,8 @@ void lptmr_isr_callback(void)
     (*tick_handler)();
     // printf("%d ",gLPTMR_counter);
 }
-*/
+
+/*
 
 void hwtimer_callback(void* data)
  {
@@ -60,7 +60,7 @@ void hwtimer_callback(void* data)
  	}
  }
 
-
+*/
 
 enum
 {
@@ -76,7 +76,7 @@ takeReading()
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
 
-
+/*
 
 	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL);
 	if (kHwtimerSuccess != code)
@@ -162,9 +162,9 @@ takeReading()
 
     return 0;
 
+	*/
 	
 	
-	/*
 	lptmr_user_config_t LptmrUserConfig =
     {
         .timerMode = kLptmrTimerModeTimeCounter, // Use LPTMR in Time Counter mode
@@ -239,16 +239,15 @@ takeReading()
 
     uint32_t time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
 
-    uint32_t a = time;
-
     int counter = 0;
 
-    SEGGER_RTT_printf(0, "First time received: %d \n", time);
+    SEGGER_RTT_printf(0, "First time received: %d %d\n", time, counter);
 
     while (true)
     {
+    	counter += 1;
     	time = LPTMR_DRV_GetCurrentTimeUs(LPTMR_INSTANCE);
-    	SEGGER_RTT_printf(0, "%d\n", time);
+    	SEGGER_RTT_printf(0, "%d %d\n", time, counter);
 
     }
 
@@ -385,7 +384,7 @@ takeReading()
 	//return 1;
 }
 
-/*
+
 
 void hal_tick_set_handler(void (*handler)(void)) { //this will get called every "hal_tick_get_tick_period_in_ms"
 
@@ -400,4 +399,4 @@ void hal_tick_set_handler(void (*handler)(void)) { //this will get called every 
 int hal_tick_get_tick_period_in_ms(void){
     return 250;
 }
-*/
+
