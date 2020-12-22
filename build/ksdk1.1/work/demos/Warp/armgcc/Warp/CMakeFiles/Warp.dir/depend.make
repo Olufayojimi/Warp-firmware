@@ -204,8 +204,10 @@ CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/s
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/CMSIS/Include/device/MKL03Z4/fsl_bitaccess.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/CMSIS/Include/device/fsl_device_registers.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/drivers/inc/fsl_gpio_driver.h
+CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/drivers/inc/fsl_lptmr_driver.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/drivers/inc/fsl_spi_master_driver.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_gpio_hal.h
+CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_lptmr_hal.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_mcglite_hal.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_mcglite_hal_modes.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/hal/inc/fsl_port_hal.h
@@ -220,7 +222,6 @@ CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/s
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/osa/inc/fsl_os_abstraction_ucosiii.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/startup/MKL03Z4/system_MKL03Z4.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/system/inc/fsl_clock_manager.h
-CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/system/inc/fsl_hwtimer.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/system/src/clock/MKL03Z4/fsl_clock_MKL03Z4.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: ../../../../platform/utilities/inc/fsl_debug_console.h
 CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.c.obj: /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/SEGGER_RTT.h
