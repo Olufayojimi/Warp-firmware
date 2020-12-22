@@ -70,8 +70,6 @@ enum
 	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
 };
 
-GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
-GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
 
 
 
@@ -80,6 +78,10 @@ takeReading()
 {
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
+
+	GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
+	GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
+
 
 
 
