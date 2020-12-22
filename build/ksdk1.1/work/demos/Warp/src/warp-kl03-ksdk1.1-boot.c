@@ -2534,10 +2534,9 @@ main(void)
 				break;
 				*/
 				//enableI2Cpins(1000000);
-				for (int i=0; i < 10; i++)
-				{
-					int a = takeReading();
-				}
+				
+				int a = takeReading();
+				
 				
 				
 				break;
