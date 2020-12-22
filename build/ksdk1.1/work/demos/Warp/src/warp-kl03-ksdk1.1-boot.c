@@ -2533,8 +2533,12 @@ main(void)
 				#endif
 				break;
 				*/
-				enableI2Cpins(1000000);
-				int a = takeReading();
+				//enableI2Cpins(1000000);
+				for (int i=0; i < 10; i++)
+				{
+					int a = takeReading();
+				}
+				
 				
 				break;
 			}
