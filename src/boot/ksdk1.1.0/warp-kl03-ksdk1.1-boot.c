@@ -1368,6 +1368,7 @@ main(void)
 #endif
 
 	//int output_green = devSSD1331init();
+	int output_battery = battery();
 
 	// Loop 1000 times for current data
 
