@@ -113,7 +113,7 @@ takeReading()
 
     SEGGER_RTT_printf(0, "Initialised\n");
 
-    code = HWTIMER_SYS_SetPeriod(&hwtimer,kMcgIrClock, HWTIMER_PERIOD);
+    code = HWTIMER_SYS_SetPeriod(&hwtimer,kCoreClock, HWTIMER_PERIOD);
 
     if (kHwtimerSuccess != code)
     {
