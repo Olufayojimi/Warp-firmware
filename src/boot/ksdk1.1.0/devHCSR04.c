@@ -3,8 +3,14 @@
 
 #include "fsl_spi_master_driver.h"
 #include "fsl_port_hal.h"
+<<<<<<< HEAD
 //#include "fsl_lptmr_driver.h"
 #include "fsl_hwtimer.h"
+=======
+#include "fsl_lptmr_driver.h"
+#include "fsl_lptmr_hal.h"
+//#include "fsl_hwtimer.h"
+>>>>>>> 745803d8f449e1d3589a62637d181d36641db5c8
 #include "fsl_debug_console.h"
 #include "fsl_clock_manager.h"
 
