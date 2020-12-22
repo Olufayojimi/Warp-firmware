@@ -276,7 +276,7 @@ battery(void)
 	 */
 	//...
 
-
+	/*
 	writeCommand(kSSD1331CommandDRAWRECT);
 	writeCommand(0x14);
 	writeCommand(0x14);
@@ -288,6 +288,20 @@ battery(void)
 	writeCommand(0x00);
 	writeCommand(0xFF);
 	writeCommand(0x00);
+	*/
+
+	writeCommand(kSSD1331CommandDRAWRECT);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+	writeCommand(0xFF);
+	writeCommand(255);
+	writeCommand(0xFF);
+	writeCommand(0x00);
+	writeCommand(0xFF);
+	writeCommand(0x00);
+
 
 
 
