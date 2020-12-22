@@ -70,6 +70,9 @@ enum
 	kHCSR04PinTrig		= GPIO_MAKE_PIN(HW_GPIOB, 11),
 };
 
+GPIO_DRV_SetPinDir(kHCSR04PinEcho, kGpioDigitalInput);
+GPIO_DRV_SetPinDir(kHCSR04PinTrig, kGpioDigitalOutput);
+
 
 
 int
@@ -108,7 +111,7 @@ takeReading()
 
     SEGGER_RTT_printf(0, "Initialised\n");
 
-    code = HWTIMER_SYS_SetPeriod(&hwtimer,kMcgFllClock, HWTIMER_PERIOD);
+    code = HWTIMER_SYS_SetPeriod(&hwtimer,kBusClock, HWTIMER_PERIOD);
 
     if (kHwtimerSuccess != code)
     {
