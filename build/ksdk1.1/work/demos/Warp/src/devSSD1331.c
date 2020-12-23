@@ -260,15 +260,7 @@ battery(int input)
 	writeCommand(kSSD1331CommandFILL);
 	writeCommand(0x01);
 
-	/*
-	 *	Clear Screen
-	 */
-	writeCommand(kSSD1331CommandCLEAR);
-	writeCommand(0x00);
-	writeCommand(0x00);
-	writeCommand(0x5F);
-	writeCommand(0x3F);
-
+	
 
 
 	/*
@@ -302,7 +294,7 @@ battery(int input)
 	writeCommand(0x00);
 	writeCommand(0x00);
 
-	if (input >= 48) 
+	if (input >= 47) 
 	{
 		if (input >= 94) 
 		{
@@ -340,12 +332,12 @@ battery(int input)
 		writeCommand(0x01);
 		writeCommand(input);
 		writeCommand(0x3E);
-		writeCommand(0x00);
 		writeCommand(0xFF);
 		writeCommand(0xFF);
 		writeCommand(0x00);
 		writeCommand(0xFF);
 		writeCommand(0xFF);
+		writeCommand(0x00);
 	}
 	else if (input >= 1)
 	{
