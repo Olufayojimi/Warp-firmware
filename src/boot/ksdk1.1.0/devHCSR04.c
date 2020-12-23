@@ -200,9 +200,11 @@ takeReading()
 
     	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
-    SEGGER_RTT_printf(0,"%d\n", total/10);
+    int avg = total/10;
+    avg = -1.24 * (avg-672);
+    SEGGER_RTT_printf(0,"%d\n", avg);
     
-    return total/10;
+    return avg;
 
 	
 	
