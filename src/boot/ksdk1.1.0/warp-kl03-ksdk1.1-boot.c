@@ -63,7 +63,7 @@
 *	Comment out the header file to disable devices
 */
 #ifndef WARP_FRDMKL03
-#	include "devBMX055.h"
+//#	include "devBMX055.h"
 #	include "devMMA8451Q.h"
 #	include "devHDC1000.h"
 #	include "devMAG3110.h"
@@ -115,11 +115,11 @@ volatile WarpSPIDeviceState			deviceADXL362State;
 volatile WarpSPIDeviceState			deviceISL23415State;
 #endif
 
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
+/*#ifdef WARP_BUILD_ENABLE_DEVBMX055
 volatile WarpI2CDeviceState			deviceBMX055accelState;
 volatile WarpI2CDeviceState			deviceBMX055gyroState;
 volatile WarpI2CDeviceState			deviceBMX055magState;
-#endif
+#endif*/
 
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 volatile WarpI2CDeviceState			deviceMMA8451QState;
@@ -1036,7 +1036,7 @@ int
 main(void)
 {
 	uint8_t					key;
-	WarpSensorDevice			menuTargetSensor = kWarpSensorBMX055accel;
+	//WarpSensorDevice			menuTargetSensor = kWarpSensorBMX055accel;
 	volatile WarpI2CDeviceState *		menuI2cDevice = NULL;
 	uint16_t				menuI2cPullupValue = 32768;
 	uint8_t					menuRegisterAddress = 0x00;
@@ -1250,11 +1250,11 @@ main(void)
 	/*
 	 *	Initialize all the sensors
 	 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-	initBMX055accel(0x18	/* i2cAddress */,	&deviceBMX055accelState	);
-	initBMX055gyro(	0x68	/* i2cAddress */,	&deviceBMX055gyroState	);
-	initBMX055mag(	0x10	/* i2cAddress */,	&deviceBMX055magState	);
-#endif
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//	initBMX055accel(0x18	/* i2cAddress */,	&deviceBMX055accelState	);
+//	initBMX055gyro(	0x68	/* i2cAddress */,	&deviceBMX055gyroState	);
+//	initBMX055mag(	0x10	/* i2cAddress */,	&deviceBMX055magState	);
+//#endif
 
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 	initMMA8451Q(	0x1D	/* i2cAddress */,	&deviceMMA8451QState	);
@@ -1505,7 +1505,7 @@ main(void)
 #endif
 				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
+/*#ifdef WARP_BUILD_ENABLE_DEVBMX055
 				SEGGER_RTT_WriteString(0, "\r\t- '2' BMX055accel		(0x00--0x3F): 2.4V -- 3.6V\n");
 				SEGGER_RTT_WriteString(0, "\r\t- '3' BMX055gyro			(0x00--0x3F): 2.4V -- 3.6V\n");
 				SEGGER_RTT_WriteString(0, "\r\t- '4' BMX055mag			(0x40--0x52): 2.4V -- 3.6V\n");
@@ -1514,7 +1514,7 @@ main(void)
 				SEGGER_RTT_WriteString(0, "\r\t- '3' BMX055gyro			(0x00--0x3F): 2.4V -- 3.6V (compiled out) \n");
 				SEGGER_RTT_WriteString(0, "\r\t- '4' BMX055mag			(0x40--0x52): 2.4V -- 3.6V (compiled out) \n");
 #endif
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);*/
 
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 				SEGGER_RTT_WriteString(0, "\r\t- '5' MMA8451Q			(0x00--0x31): 1.95V -- 3.6V\n");
@@ -1636,7 +1636,7 @@ main(void)
 						break;
 					}
 #endif
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
+/*#ifdef WARP_BUILD_ENABLE_DEVBMX055
 					case '2':
 					{
 						menuTargetSensor = kWarpSensorBMX055accel;
@@ -1659,7 +1659,7 @@ main(void)
 						menuI2cDevice = &deviceBMX055magState;
 						break;
 					}
-#endif
+#endif*/
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 					case '5':
 					{
@@ -2653,22 +2653,22 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 					i2cPullupValue
 					);
 	#endif
-	#ifdef WARP_BUILD_ENABLE_DEVBMX055
-	numberOfConfigErrors += configureSensorBMX055accel(0b00000011,/* Payload:+-2g range */
-					0b10000000,/* Payload:unfiltered data, shadowing enabled */
-					i2cPullupValue
-					);
-	numberOfConfigErrors += configureSensorBMX055mag(0b00000001,/* Payload:from suspend mode to sleep mode*/
-					0b00000001,/* Default 10Hz data rate, forced mode*/
-					i2cPullupValue
-					);
-	numberOfConfigErrors += configureSensorBMX055gyro(0b00000100,/* +- 125degrees/s */
-					0b00000000,/* ODR 2000 Hz, unfiltered */
-					0b00000000,/* normal mode */
-					0b10000000,/* unfiltered data, shadowing enabled */
-					i2cPullupValue
-					);
-	#endif
+	//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+	//numberOfConfigErrors += configureSensorBMX055accel(0b00000011,/* Payload:+-2g range */
+	//				0b10000000,/* Payload:unfiltered data, shadowing enabled */
+	//				i2cPullupValue
+	//				);
+	//numberOfConfigErrors += configureSensorBMX055mag(0b00000001,/* Payload:from suspend mode to sleep mode*/
+	//				0b00000001,/* Default 10Hz data rate, forced mode*/
+	//				i2cPullupValue
+	//				);
+	//numberOfConfigErrors += configureSensorBMX055gyro(0b00000100,/* +- 125degrees/s */
+	//				0b00000000,/* ODR 2000 Hz, unfiltered */
+	//				0b00000000,/* normal mode */
+	//				0b10000000,/* unfiltered data, shadowing enabled */
+	//				i2cPullupValue
+	//				);
+	//#endif
 
 
 	if (printHeadersAndCalibration)
@@ -2704,14 +2704,14 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		SEGGER_RTT_WriteString(0, " BME680 Press, BME680 Temp, BME680 Hum,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		#endif
-		#ifdef WARP_BUILD_ENABLE_DEVBMX055
+		/*#ifdef WARP_BUILD_ENABLE_DEVBMX055
 		SEGGER_RTT_WriteString(0, " BMX055acc x, BMX055acc y, BMX055acc z, BMX055acc Temp,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		SEGGER_RTT_WriteString(0, " BMX055mag x, BMX055mag y, BMX055mag z, BMX055mag RHALL,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 		SEGGER_RTT_WriteString(0, " BMX055gyro x, BMX055gyro y, BMX055gyro z,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-		#endif
+		#endif*/
 		#ifdef WARP_BUILD_ENABLE_DEVCCS811
 		SEGGER_RTT_WriteString(0, " CCS811 ECO2, CCS811 TVOC, CCS811 RAW ADC value, CCS811 RAW R_REF value, CCS811 RAW R_NTC value,");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
@@ -2755,11 +2755,11 @@ printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelay
 		#ifdef WARP_BUILD_ENABLE_DEVBME680
 		printSensorDataBME680(hexModeFlag);
 		#endif
-		#ifdef WARP_BUILD_ENABLE_DEVBMX055
+		/*#ifdef WARP_BUILD_ENABLE_DEVBMX055
 		printSensorDataBMX055accel(hexModeFlag);
 		printSensorDataBMX055mag(hexModeFlag);
 		printSensorDataBMX055gyro(hexModeFlag);
-		#endif
+		#endif*/
 		#ifdef WARP_BUILD_ENABLE_DEVCCS811
 		printSensorDataCCS811(hexModeFlag);
 		#endif
@@ -3065,89 +3065,89 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 			break;
 		}
 
-		case kWarpSensorBMX055accel:
+		/*case kWarpSensorBMX055accel:
 		{
 			/*
 			 *	BMX055accel: VDD 2.4V -- 3.6V
 			 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-			loopForSensor(	"\r\nBMX055accel:\n\r",		/*	tagString			*/
-					&readSensorRegisterBMX055accel,	/*	readSensorRegisterFunction	*/
-					&deviceBMX055accelState,	/*	i2cDeviceState			*/
-					NULL,				/*	spiDeviceState			*/
-					baseAddress,			/*	baseAddress			*/
-					0x00,				/*	minAddress			*/
-					0x39,				/*	maxAddress			*/
-					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
-					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
-					spinDelay,			/*	spinDelay			*/
-					autoIncrement,			/*	autoIncrement			*/
-					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
-					referenceByte,			/*	referenceByte			*/
-					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
-					chatty				/*	chatty				*/
-					);
-			#else
-			SEGGER_RTT_WriteString(0, "\r\n\tBMX055accel Read Aborted. Device Disabled :( ");
-#endif
-			break;
-		}
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//			loopForSensor(	"\r\nBMX055accel:\n\r",		/*	tagString			*/
+//					&readSensorRegisterBMX055accel,	/*	readSensorRegisterFunction	*/
+//					&deviceBMX055accelState,	/*	i2cDeviceState			*/
+//					NULL,				/*	spiDeviceState			*/
+//					baseAddress,			/*	baseAddress			*/
+//					0x00,				/*	minAddress			*/
+//					0x39,				/*	maxAddress			*/
+//					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
+//					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
+//					spinDelay,			/*	spinDelay			*/
+//					autoIncrement,			/*	autoIncrement			*/
+//					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
+//					referenceByte,			/*	referenceByte			*/
+//					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
+//					chatty				/*	chatty				*/
+//					);
+//			#else
+//			SEGGER_RTT_WriteString(0, "\r\n\tBMX055accel Read Aborted. Device Disabled :( ");
+//#endif
+//			break;
+//		}
 
-		case kWarpSensorBMX055gyro:
-		{
+//		case kWarpSensorBMX055gyro:
+//		{
 			/*
 			 *	BMX055gyro: VDD 2.4V -- 3.6V
 			 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-			loopForSensor(	"\r\nBMX055gyro:\n\r",		/*	tagString			*/
-					&readSensorRegisterBMX055gyro,	/*	readSensorRegisterFunction	*/
-					&deviceBMX055gyroState,		/*	i2cDeviceState			*/
-					NULL,				/*	spiDeviceState			*/
-					baseAddress,			/*	baseAddress			*/
-					0x00,				/*	minAddress			*/
-					0x39,				/*	maxAddress			*/
-					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
-					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
-					spinDelay,			/*	spinDelay			*/
-					autoIncrement,			/*	autoIncrement			*/
-					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
-					referenceByte,			/*	referenceByte			*/
-					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
-					chatty				/*	chatty				*/
-					);
-			#else
-			SEGGER_RTT_WriteString(0, "\r\n\tBMX055gyro Read Aborted. Device Disabled :( ");
-#endif
-			break;
-		}
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//			loopForSensor(	"\r\nBMX055gyro:\n\r",		/*	tagString			*/
+//					&readSensorRegisterBMX055gyro,	/*	readSensorRegisterFunction	*/
+//					&deviceBMX055gyroState,		/*	i2cDeviceState			*/
+//					NULL,				/*	spiDeviceState			*/
+//					baseAddress,			/*	baseAddress			*/
+//					0x00,				/*	minAddress			*/
+//					0x39,				/*	maxAddress			*/
+//					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
+///					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
+//					spinDelay,			/*	spinDelay			*/
+//					autoIncrement,			/*	autoIncrement			*/
+//					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
+//					referenceByte,			/*	referenceByte			*/
+//					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
+//					chatty				/*	chatty				*/
+//					);
+//			#else
+//			SEGGER_RTT_WriteString(0, "\r\n\tBMX055gyro Read Aborted. Device Disabled :( ");
+//#endif
+//			break;
+//		}
 
-		case kWarpSensorBMX055mag:
-		{
+//		case kWarpSensorBMX055mag:
+//		{
 			/*
 			 *	BMX055mag: VDD 2.4V -- 3.6V
 			 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-			loopForSensor(	"\r\nBMX055mag:\n\r",		/*	tagString			*/
-					&readSensorRegisterBMX055mag,	/*	readSensorRegisterFunction	*/
-					&deviceBMX055magState,		/*	i2cDeviceState			*/
-					NULL,				/*	spiDeviceState			*/
-					baseAddress,			/*	baseAddress			*/
-					0x40,				/*	minAddress			*/
-					0x52,				/*	maxAddress			*/
-					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
-					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
-					spinDelay,			/*	spinDelay			*/
-					autoIncrement,			/*	autoIncrement			*/
-					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
-					referenceByte,			/*	referenceByte			*/
-					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
-					chatty				/*	chatty				*/
-					);
-			#else
-			SEGGER_RTT_WriteString(0, "\r\n\t BMX055mag Read Aborted. Device Disabled :( ");
-#endif
-			break;
-		}
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//			loopForSensor(	"\r\nBMX055mag:\n\r",		/*	tagString			*/
+//					&readSensorRegisterBMX055mag,	/*	readSensorRegisterFunction	*/
+//					&deviceBMX055magState,		/*	i2cDeviceState			*/
+//					NULL,				/*	spiDeviceState			*/
+//					baseAddress,			/*	baseAddress			*/
+//					0x40,				/*	minAddress			*/
+//					0x52,				/*	maxAddress			*/
+//					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
+//					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
+//					spinDelay,			/*	spinDelay			*/
+//					autoIncrement,			/*	autoIncrement			*/
+//					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
+//					referenceByte,			/*	referenceByte			*/
+//					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
+//					chatty				/*	chatty				*/
+//					);
+//			#else
+//			SEGGER_RTT_WriteString(0, "\r\n\t BMX055mag Read Aborted. Device Disabled :( ");
+//#endif
+//			break;
+//		}
 
 		case kWarpSensorMAG3110:
 		{
@@ -3583,22 +3583,22 @@ powerupAllSensors(void)
 	 *
 	 *	Write '1' to power control bit of register 0x4B. See page 134.
 	 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-	status = writeByteToI2cDeviceRegister(	deviceBMX055magState.i2cAddress		/*	i2cAddress		*/,
-						true					/*	sendCommandByte		*/,
-						0x4B					/*	commandByte		*/,
-						true					/*	sendPayloadByte		*/,
-						(1 << 0)				/*	payloadByte		*/);
-	if (status != kWarpStatusOK)
-	{
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		SEGGER_RTT_printf(0, "\r\tPowerup command failed, code=%d, for BMX055mag @ 0x%02x.\n", status, deviceBMX055magState.i2cAddress);
-#endif
-	}
-	#else
-	SEGGER_RTT_WriteString(0, "\r\tPowerup command failed. BMX055 disabled \n");
-#endif
-}
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//	status = writeByteToI2cDeviceRegister(	deviceBMX055magState.i2cAddress		/*	i2cAddress		*/,
+//						true					/*	sendCommandByte		*/,
+//						0x4B					/*	commandByte		*/,
+//						true					/*	sendPayloadByte		*/,
+//						(1 << 0)				/*	payloadByte		*/);
+//	if (status != kWarpStatusOK)
+//	{
+//#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+//		SEGGER_RTT_printf(0, "\r\tPowerup command failed, code=%d, for BMX055mag @ 0x%02x.\n", status, deviceBMX055magState.i2cAddress);
+//#endif
+//	}
+//	#else
+//	SEGGER_RTT_WriteString(0, "\r\tPowerup command failed. BMX055 disabled \n");
+//#endif
+//}
 
 
 
@@ -3622,42 +3622,42 @@ activateAllLowPowerSensorModes(bool verbose)
 	 *
 	 *	Write '1' to deep suspend bit of register 0x11, and write '0' to suspend bit of register 0x11. See page 23.
 	 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-	status = writeByteToI2cDeviceRegister(	deviceBMX055accelState.i2cAddress	/*	i2cAddress		*/,
-						true					/*	sendCommandByte		*/,
-						0x11					/*	commandByte		*/,
-						true					/*	sendPayloadByte		*/,
-						(1 << 5)				/*	payloadByte		*/);
-	if ((status != kWarpStatusOK) && verbose)
-	{
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		SEGGER_RTT_printf(0, "\r\tPowerdown command failed, code=%d, for BMX055accel @ 0x%02x.\n", status, deviceBMX055accelState.i2cAddress);
-#endif
-	}
-	#else
-	SEGGER_RTT_WriteString(0, "\r\tPowerdown command abandoned. BMX055 disabled\n");
-#endif
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//	status = writeByteToI2cDeviceRegister(	deviceBMX055accelState.i2cAddress	/*	i2cAddress		*/,
+//						true					/*	sendCommandByte		*/,
+//						0x11					/*	commandByte		*/,
+//						true					/*	sendPayloadByte		*/,
+//						(1 << 5)				/*	payloadByte		*/);
+//	if ((status != kWarpStatusOK) && verbose)
+//	{
+//#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+//		SEGGER_RTT_printf(0, "\r\tPowerdown command failed, code=%d, for BMX055accel @ 0x%02x.\n", status, deviceBMX055accelState.i2cAddress);
+//#endif
+//	}
+//	#else
+//	SEGGER_RTT_WriteString(0, "\r\tPowerdown command abandoned. BMX055 disabled\n");
+//#endif
 
 	/*
 	 *	BMX055gyro: At POR, device is in Normal mode. Move it to Deep Suspend mode.
 	 *
 	 *	Write '1' to deep suspend bit of register 0x11. See page 81.
 	 */
-#ifdef WARP_BUILD_ENABLE_DEVBMX055
-	status = writeByteToI2cDeviceRegister(	deviceBMX055gyroState.i2cAddress	/*	i2cAddress		*/,
-						true					/*	sendCommandByte		*/,
-						0x11					/*	commandByte		*/,
-						true					/*	sendPayloadByte		*/,
-						(1 << 5)				/*	payloadByte		*/);
-	if ((status != kWarpStatusOK) && verbose)
-	{
-#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		SEGGER_RTT_printf(0, "\r\tPowerdown command failed, code=%d, for BMX055gyro @ 0x%02x.\n", status, deviceBMX055gyroState.i2cAddress);
-#endif
-	}
-	#else
-	SEGGER_RTT_WriteString(0, "\r\tPowerdown command abandoned. BMX055 disabled\n");
-#endif
+//#ifdef WARP_BUILD_ENABLE_DEVBMX055
+//	status = writeByteToI2cDeviceRegister(	deviceBMX055gyroState.i2cAddress	/*	i2cAddress		*/,
+//						true					/*	sendCommandByte		*/,
+//						0x11					/*	commandByte		*/,
+//						true					/*	sendPayloadByte		*/,
+//						(1 << 5)				/*	payloadByte		*/);
+//	if ((status != kWarpStatusOK) && verbose)
+//	{
+//#ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF/
+//		SEGGER_RTT_printf(0, "\r\tPowerdown command failed, code=%d, for BMX055gyro @ 0x%02x.\n", status, deviceBMX055gyroState.i2cAddress);
+//#endif
+//	}
+//	#else
+//	SEGGER_RTT_WriteString(0, "\r\tPowerdown command abandoned. BMX055 disabled\n");
+//#endif
 
 
 
