@@ -149,8 +149,11 @@ takeReading()
     }
     //SEGGER_RTT_printf(0, "Callback set\n");
 
+    int total = 0;
+
     for (int i=0; i < 10; i++)
     {
+
     	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
 		OSA_TimeDelay(5);
 
@@ -188,6 +191,7 @@ takeReading()
 		}
 
 		SEGGER_RTT_printf(0, "%d\n", counter);
+		total += counter;
 
 		if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
     	{
@@ -196,9 +200,9 @@ takeReading()
 
     	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
-
+    SEGGER_RTT_printf(0,"%d\n", total/10);
     
-    return 0;
+    return total/10;
 
 	
 	
