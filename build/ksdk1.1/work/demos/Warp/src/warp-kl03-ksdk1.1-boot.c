@@ -2541,6 +2541,7 @@ main(void)
 				
 				int a = 0;
 				int b = 0;
+				/*
 				while (true)
 				{
 					b = 94 - takeReading();
@@ -2565,6 +2566,10 @@ main(void)
 						x = battery(b);
 						a = b;
 					}
+				}*/
+				while (true)
+				{
+					int test = battery(67);
 				}
 				
 
