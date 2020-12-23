@@ -2538,9 +2538,25 @@ main(void)
 				*/
 				//enableI2Cpins(1000000);
 
-				for (int i=1; i < 95; i++)
+				
+				int a = 0;
+				int b = 0;
+				while (true)
 				{
-					int bat = battery(i);
+					//b = takeReading();
+					b = SEGGER_RTT_WaitKey();
+					SEGGER_RTT_printf(0, "\n %d", b);
+					if (b > a)
+					{
+						int x = battery(b);
+						a = b;
+					}
+					else if (b < a)
+					{
+						int x = black(b, a);
+						x = battery(b);
+						a = b;
+					}
 				}
 				
 				break;

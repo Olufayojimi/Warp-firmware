@@ -45,3 +45,5 @@ typedef enum
 int	devSSD1331init(void);
 
 int battery(int input);
+
+int black(int lower, int larger);
