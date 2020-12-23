@@ -1438,7 +1438,7 @@ main(void)
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 #ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		SEGGER_RTT_printf(0, "\r- 'j': repeat read reg 0x%02x on sensor #%d.\n", menuRegisterAddress, menuTargetSensor);
+		//SEGGER_RTT_printf(0, "\r- 'j': repeat read reg 0x%02x on sensor #%d.\n", menuRegisterAddress, menuTargetSensor);
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 #endif
 
