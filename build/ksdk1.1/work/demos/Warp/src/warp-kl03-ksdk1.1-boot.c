@@ -2538,7 +2538,7 @@ main(void)
 				*/
 				//enableI2Cpins(1000000);
 
-				
+				/*
 				int a = 0;
 				int b = 0;
 				while (true)
@@ -2548,8 +2548,16 @@ main(void)
 					SEGGER_RTT_printf(0, "\n %d", b);
 					if (b > a)
 					{
-						int x = battery(b);
-						a = b;
+						if (b >= 94)
+						{
+							int x = battery(94);
+							a = 94;
+						}
+						else
+						{
+							int x = battery(b);
+							a = b;
+						}	
 					}
 					else if (b < a)
 					{
@@ -2558,6 +2566,9 @@ main(void)
 						a = b;
 					}
 				}
+				*/
+
+				int test = takeReading();
 				
 				break;
 			}
