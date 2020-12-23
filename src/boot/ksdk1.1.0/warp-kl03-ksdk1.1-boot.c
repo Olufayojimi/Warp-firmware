@@ -1368,7 +1368,18 @@ main(void)
 	 */
 #endif
 
-	//int output_green = devSSD1331init();
+	int output_green = devSSD1331init();
+	writeCommand(kSSD1331CommandDRAWRECT);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+	writeCommand(0xFF);
+	writeCommand(0xFF);
+	writeCommand(0xFF);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x00);
 	//int output_battery = battery();
 
 	// Loop 1000 times for current data
