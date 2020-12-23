@@ -1439,7 +1439,7 @@ main(void)
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 #ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-		//SEGGER_RTT_printf(0, "\r- 'j': repeat read reg 0x%02x on sensor #%d.\n", menuRegisterAddress, menuTargetSensor);
+		SEGGER_RTT_printf(0, "\r- 'j': repeat read reg 0x%02x on sensor #%d.\n", menuRegisterAddress, menuTargetSensor);
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 #endif
 
@@ -2537,11 +2537,11 @@ main(void)
 				*/
 				//enableI2Cpins(1000000);
 
-				//int test = SEGGER_RTT_WaitKey();
-				//SEGGER_RTT_printf(0, "\n %d \n", test);
+				int test = SEGGER_RTT_WaitKey();
+				SEGGER_RTT_printf(0, "\n %d \n", test);
 				
 				//int a = takeReading();
-				//int bat = battery(50);
+				int bat = battery(50);
 				
 				
 				
