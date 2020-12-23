@@ -2538,13 +2538,13 @@ main(void)
 				*/
 				//enableI2Cpins(1000000);
 
-				/*
+				
 				int a = 0;
 				int b = 0;
 				while (true)
 				{
-					//b = takeReading();
-					b = SEGGER_RTT_WaitKey();
+					b = 94 - takeReading();
+					//b = SEGGER_RTT_WaitKey();
 					SEGGER_RTT_printf(0, "\n %d", b);
 					if (b > a)
 					{
@@ -2566,9 +2566,9 @@ main(void)
 						a = b;
 					}
 				}
-				*/
+				
 
-				int test = takeReading();
+				//int test = takeReading();
 				
 				break;
 			}
