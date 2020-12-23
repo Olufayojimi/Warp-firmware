@@ -2541,7 +2541,7 @@ main(void)
 				SEGGER_RTT_printf(0, "\n %d \n", test);
 				
 				//int a = takeReading();
-				int bat = battery(50);
+				int bat = battery(test);
 				
 				
 				
