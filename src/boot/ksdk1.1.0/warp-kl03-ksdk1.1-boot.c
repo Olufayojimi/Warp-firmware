@@ -2536,11 +2536,11 @@ main(void)
 				*/
 				//enableI2Cpins(1000000);
 
-				int test = SEGGER_RTT_WaitKey();
-				SEGGER_RTT_printf(0, "\n %d \n", test);
+				//int test = SEGGER_RTT_WaitKey();
+				//SEGGER_RTT_printf(0, "\n %d \n", test);
 				
 				//int a = takeReading();
-				int bat = battery(test);
+				int bat = battery(50);
 				
 				
 				
