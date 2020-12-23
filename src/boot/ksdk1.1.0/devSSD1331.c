@@ -308,6 +308,18 @@ battery(int input)
 	writeCommand(0x00);
 	*/
 
+	writeCommand(kSSD1331CommandDRAWRECT);
+	writeCommand(0x01);
+	writeCommand(0x01);
+	writeCommand(0x5E);
+	writeCommand(0x3E);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x00);
+
 	if (input >= 47) 
 	{
 		if (input >= 94) 
