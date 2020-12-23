@@ -346,12 +346,12 @@ battery(int input)
 		writeCommand(0x01);
 		writeCommand(input);
 		writeCommand(0x3E);
-		writeCommand(0x00);
-		writeCommand(0x00);
 		writeCommand(0xFF);
 		writeCommand(0x00);
 		writeCommand(0x00);
 		writeCommand(0xFF);
+		writeCommand(0x00);
+		writeCommand(0x00);
 	}
 
 
