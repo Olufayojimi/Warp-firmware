@@ -43,7 +43,8 @@ CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/s
  /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp.h \
  /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devMMA8451Q.h \
  /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h \
- /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.h
+ /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.h \
+ /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h
 
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/armgcc/Warp/../../../../platform/utilities/inc/fsl_misc_utilities.h:
 
@@ -132,3 +133,5 @@ CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/s
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h:
 
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.h:
+
+/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h:

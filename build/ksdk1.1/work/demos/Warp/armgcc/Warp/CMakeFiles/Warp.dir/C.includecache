@@ -1237,6 +1237,8 @@ devINA219.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devINA219.h
 devHCSR04.h
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devHCSR04.h
+devSSD1331.h
+/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devSSD1331.h
 
 /students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/warp-kl03-ksdk1.1-powermodes.c
 stdint.h

@@ -89,6 +89,7 @@
 #	include "devMMA8451Q.h"
 #	include "devINA219.h"
 #	include "devHCSR04.h"
+#	include "devSSD1331.h"
 #endif
 
 
@@ -1368,7 +1369,7 @@ main(void)
 	 */
 #endif
 
-	//int output_green = devSSD1331init();
+	int output_green = devSSD1331init();
 	//int output_battery = battery();
 
 	// Loop 1000 times for current data

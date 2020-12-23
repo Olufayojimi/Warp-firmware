@@ -163,6 +163,7 @@ devSSD1331init(void)
 	writeCommand(kSSD1331CommandCONTRASTB);
 	writeCommand(0xFF);
 
+	/*
 	writeCommand(kSSD1331CommandDRAWRECT);
 	writeCommand(0x00);
 	writeCommand(0x00);
@@ -174,7 +175,19 @@ devSSD1331init(void)
 	writeCommand(0x00);
 	writeCommand(0xFF);
 	writeCommand(0x00);
+	*/
 
+	writeCommand(kSSD1331CommandDRAWRECT);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+	writeCommand(0xFF);
+	writeCommand(0xFF);
+	writeCommand(0xFF);
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x00);
 
 
 	return 0;
@@ -187,7 +200,7 @@ battery(int input)
 	 *	Override Warp firmware's use of these pins.
 	 *
 	 *	Re-configure SPI to be on PTA8 and PTA9 for MOSI and SCK respectively.
-	 */
+	 
 	PORT_HAL_SetMuxMode(PORTA_BASE, 8u, kPortMuxAlt3);
 	PORT_HAL_SetMuxMode(PORTA_BASE, 9u, kPortMuxAlt3);
 
@@ -197,7 +210,7 @@ battery(int input)
 	 *	Override Warp firmware's use of these pins.
 	 *
 	 *	Reconfigure to use as GPIO.
-	 */
+	 
 	PORT_HAL_SetMuxMode(PORTB_BASE, 13u, kPortMuxAsGpio);
 	PORT_HAL_SetMuxMode(PORTA_BASE, 12u, kPortMuxAsGpio);
 	PORT_HAL_SetMuxMode(PORTB_BASE, 0u, kPortMuxAsGpio);
@@ -205,7 +218,7 @@ battery(int input)
 
 	/*
 	 *	RST high->low->high.
-	 */
+	 
 	GPIO_DRV_SetPinOutput(kSSD1331PinRST);
 	OSA_TimeDelay(100);
 	GPIO_DRV_ClearPinOutput(kSSD1331PinRST);
@@ -215,7 +228,7 @@ battery(int input)
 
 	/*
 	 *	Initialization sequence, borrowed from https://github.com/adafruit/Adafruit-SSD1331-OLED-Driver-Library-for-Arduino
-	 */
+	 
 	writeCommand(kSSD1331CommandDISPLAYOFF);	// 0xAE
 	writeCommand(kSSD1331CommandSETREMAP);		// 0xA0
 	writeCommand(0x72);				// RGB Color
@@ -256,10 +269,10 @@ battery(int input)
 
 	/*
 	 *	To use fill commands, you will have to issue a command to the display to enable them. See the manual.
-	 */
+	 
 	writeCommand(kSSD1331CommandFILL);
 	writeCommand(0x01);
-
+	*/
 	
 
 
@@ -281,7 +294,7 @@ battery(int input)
 	writeCommand(0xFF);
 	writeCommand(0x00);
 	*/
-
+	/*
 	writeCommand(kSSD1331CommandDRAWRECT);
 	writeCommand(0x00);
 	writeCommand(0x00);
@@ -293,6 +306,7 @@ battery(int input)
 	writeCommand(0x00);
 	writeCommand(0x00);
 	writeCommand(0x00);
+	*/
 
 	if (input >= 47) 
 	{
