@@ -1036,6 +1036,7 @@ int
 main(void)
 {
 	uint8_t					key;
+	WarpSensorDevice menuTargetSensor;
 	//WarpSensorDevice			menuTargetSensor = kWarpSensorBMX055accel;
 	volatile WarpI2CDeviceState *		menuI2cDevice = NULL;
 	uint16_t				menuI2cPullupValue = 32768;
