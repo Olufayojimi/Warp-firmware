@@ -2145,7 +2145,7 @@ main(void)
 			case 's':
 			{
 				SEGGER_RTT_WriteString(0, "\r\n\tNOTE: First power sensors and enable I2C\n\n");
-				powerupAllSensors();
+				//powerupAllSensors();
 				break;
 			}
 
@@ -3598,7 +3598,7 @@ powerupAllSensors(void)
 //	#else
 //	SEGGER_RTT_WriteString(0, "\r\tPowerup command failed. BMX055 disabled \n");
 //#endif
-//}
+}
 
 
 
