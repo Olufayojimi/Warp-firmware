@@ -1368,7 +1368,7 @@ main(void)
 #endif
 
 	//int output_green = devSSD1331init();
-	int output_battery = battery();
+	//int output_battery = battery();
 
 	// Loop 1000 times for current data
 
@@ -2535,8 +2535,11 @@ main(void)
 				break;
 				*/
 				//enableI2Cpins(1000000);
+
+				test = SEGGER_RTT_WaitKey();
 				
-				int a = takeReading();
+				//int a = takeReading();
+				int bat = battery(test);
 				
 				
 				

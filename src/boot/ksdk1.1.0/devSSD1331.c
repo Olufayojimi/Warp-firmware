@@ -181,7 +181,7 @@ devSSD1331init(void)
 }
 
 int
-battery(void)
+battery(int input)
 {
 	/*
 	 *	Override Warp firmware's use of these pins.
@@ -296,13 +296,71 @@ battery(void)
 	writeCommand(0x5F);
 	writeCommand(0x3F);
 	writeCommand(0xFF);
-	writeCommand(255);
+	writeCommand(0xFF);
 	writeCommand(0xFF);
 	writeCommand(0x00);
-	writeCommand(0xFF);
+	writeCommand(0x00);
 	writeCommand(0x00);
 
-
+	if (input >= 48) 
+	{
+		if (input >= 94) 
+		{
+			writeCommand(kSSD1331CommandDRAWRECT);
+			writeCommand(0x01);
+			writeCommand(0x01);
+			writeCommand(0x5E);
+			writeCommand(0x3E);
+			writeCommand(0x00);
+			writeCommand(0xFF);
+			writeCommand(0x00);
+			writeCommand(0x00);
+			writeCommand(0xFF);
+			writeCommand(0x00);
+		}
+		else
+		{
+			writeCommand(kSSD1331CommandDRAWRECT);
+			writeCommand(0x01);
+			writeCommand(0x01);
+			writeCommand(input);
+			writeCommand(0x3E);
+			writeCommand(0x00);
+			writeCommand(0xFF);
+			writeCommand(0x00);
+			writeCommand(0x00);
+			writeCommand(0xFF);
+			writeCommand(0x00);
+		}
+	}
+	else if (input >= 24)
+	{
+		writeCommand(kSSD1331CommandDRAWRECT);
+		writeCommand(0x01);
+		writeCommand(0x01);
+		writeCommand(input);
+		writeCommand(0x3E);
+		writeCommand(0x00);
+		writeCommand(0xFF);
+		writeCommand(0xFF);
+		writeCommand(0x00);
+		writeCommand(0xFF);
+		writeCommand(0xFF);
+	}
+	else if (input >= 1)
+	{
+		writeCommand(kSSD1331CommandDRAWRECT);
+		writeCommand(0x01);
+		writeCommand(0x01);
+		writeCommand(input);
+		writeCommand(0x3E);
+		writeCommand(0x00);
+		writeCommand(0x00);
+		writeCommand(0xFF);
+		writeCommand(0x00);
+		writeCommand(0x00);
+		writeCommand(0xFF);
+	}
 
 
 	return 0;
