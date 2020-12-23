@@ -258,33 +258,6 @@ students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.c.s:
 	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.c.s
 .PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.c.s
 
-students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.obj: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.obj
-
-.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.obj
-
-# target to build an object file
-students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.obj:
-	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.obj
-.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.obj
-
-students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.i: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.i
-
-.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.i
-
-# target to preprocess a source file
-students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.i:
-	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.i
-.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.i
-
-students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.s: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.s
-
-.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.s
-
-# target to generate assembly for a file
-students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.s:
-	$(MAKE) -f CMakeFiles/Warp.dir/build.make CMakeFiles/Warp.dir/students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.s
-.PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.c.s
-
 students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.obj: students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.c.obj
 
 .PHONY : students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.obj
@@ -750,9 +723,6 @@ help:
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.obj"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.i"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBME680.s"
-	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.obj"
-	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.i"
-	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devBMX055.s"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.obj"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.i"
 	@echo "... students/ooo30/Warp-firmware/build/ksdk1.1/work/demos/Warp/src/devCCS811.s"

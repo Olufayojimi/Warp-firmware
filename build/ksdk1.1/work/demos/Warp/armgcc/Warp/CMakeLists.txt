@@ -89,7 +89,7 @@ ADD_EXECUTABLE(Warp
     "${ProjDirPath}/../../../../platform/startup/MKL03Z4/gcc/startup_MKL03Z4.S"
     "${ProjDirPath}/../../src/warp-kl03-ksdk1.1-boot.c"
     "${ProjDirPath}/../../src/warp-kl03-ksdk1.1-powermodes.c"
-    "${ProjDirPath}/../../src/devBMX055.c"
+#    "${ProjDirPath}/../../src/devBMX055.c"
     "${ProjDirPath}/../../src/devSSD1331.c"	
     "${ProjDirPath}/../../src/devINA219.c"
     "${ProjDirPath}/../../src/devHCSR04.c"
