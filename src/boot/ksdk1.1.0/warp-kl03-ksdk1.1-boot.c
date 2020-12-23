@@ -89,6 +89,7 @@
 #	include "devMMA8451Q.h"
 #	include "devINA219.h"
 #	include "devHCSR04.h"
+#	include "devSSD1331.h"
 #endif
 
 
