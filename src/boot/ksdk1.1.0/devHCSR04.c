@@ -151,7 +151,7 @@ takeReading()
 
     int total = 0;
 
-    for (int i=0; i < 10; i++)
+    for (int i=0; i < 20; i++)
     {
 
     	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
@@ -200,9 +200,7 @@ takeReading()
 
     	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
-    int avg = total/10;
-    avg = 672 - avg;
-    avg  = -1.24 * avg;
+    int avg = total/20;
     SEGGER_RTT_printf(0,"%d\n", avg);
     
     return avg;
