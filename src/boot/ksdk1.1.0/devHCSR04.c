@@ -144,14 +144,14 @@ takeReading()
 
     if (kHwtimerSuccess != HWTIMER_SYS_RegisterCallback(&hwtimer, hwtimer_callback, NULL))
     {
-       SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
+       //SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
        //return 0;
     }
     //SEGGER_RTT_printf(0, "Callback set\n");
 
     int total = 0;
 
-    for (int i=0; i < 20; i++)
+    for (int i=0; i < 50; i++)
     {
 
     	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
@@ -190,7 +190,7 @@ takeReading()
 			uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
 		}
 
-		SEGGER_RTT_printf(0, "%d\n", counter);
+		//SEGGER_RTT_printf(0, "%d\n", counter);
 		total += counter;
 
 		if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
@@ -200,9 +200,9 @@ takeReading()
 
     	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
-    int avg = total/20;
+    int avg = total/50;
     SEGGER_RTT_printf(0,"%d\n", avg);
-    
+
     return avg;
 
 	
