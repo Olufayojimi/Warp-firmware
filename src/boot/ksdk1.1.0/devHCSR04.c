@@ -84,7 +84,7 @@ takeReading()
 
 
 
-
+	/*
 	_hwtimer_error_code_t code = HWTIMER_SYS_Init(&hwtimer, &HWTIMER_LL_DEVIF, HWTIMER_LL_ID, 5, NULL);
 	if (kHwtimerSuccess != code)
     {
@@ -109,13 +109,13 @@ takeReading()
     		SEGGER_RTT_printf(0,"\r\nError: hwtimer initialization. Unknown Error\r\n");
     	}
         //return 0;
-    }
+    }*/
 
     SEGGER_RTT_printf(0, "Initialised\n");
 
-    code = HWTIMER_SYS_SetPeriod(&hwtimer,kMcgFllClock, HWTIMER_PERIOD);
+    //code = HWTIMER_SYS_SetPeriod(&hwtimer,kMcgFllClock, HWTIMER_PERIOD);
 
-    if (kHwtimerSuccess != code)
+    /*if (kHwtimerSuccess != code)
     {
         if (code == kHwtimerInvalidInput)
     	{
@@ -147,7 +147,7 @@ takeReading()
        //SEGGER_RTT_printf(0,"\r\nError: hwtimer callback registration.\r\n");
        //return 0;
     }
-    //SEGGER_RTT_printf(0, "Callback set\n");
+    //SEGGER_RTT_printf(0, "Callback set\n");*/
 
     int total = 0;
 
@@ -173,11 +173,12 @@ takeReading()
 			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 		}
 
+		/*
     	if (kHwtimerSuccess != HWTIMER_SYS_Start(&hwtimer))
     	{
        		//SEGGER_RTT_printf(0,"\r\nError: hwtimer start.\r\n");
        		//return 0;
-    	}
+    	}*/
 
     	int counter = 0;
     	//SEGGER_RTT_printf(0, "Timer Started %d\n", counter);
@@ -187,16 +188,16 @@ takeReading()
 		{
 			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 			counter += 1;
-			uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
+			//uint32_t time = HWTIMER_SYS_GetTicks(&hwtimer);
 		}
 
 		//SEGGER_RTT_printf(0, "%d\n", counter);
 		total += counter;
 
-		if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
+		/*if (kHwtimerSuccess != HWTIMER_SYS_Stop(&hwtimer))
     	{
         	SEGGER_RTT_printf(0,"\r\nError: hwtimer stop.\r\n");
-    	}
+    	}*/
 
     	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
