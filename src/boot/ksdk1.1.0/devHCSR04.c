@@ -74,7 +74,7 @@ enum
 
 
 int
-takeReading()
+takeReading(int option)
 {
 	
 	SEGGER_RTT_printf(0, "Starting now\n");
@@ -150,8 +150,18 @@ takeReading()
     //SEGGER_RTT_printf(0, "Callback set\n");*/
 
     int total = 0;
+    int loop = 0;
 
-    for (int i=0; i < 50; i++)
+    if (option == 0)
+    {
+    	loop = 200;
+    }
+    else
+    {
+    	loop = 40;
+    }
+
+    for (int i=0; i < loop; i++)
     {
 
     	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
@@ -201,7 +211,7 @@ takeReading()
 
     	//SEGGER_RTT_printf(0,"timer stopped\n");
     }
-    int avg = total/50;
+    int avg = total/loop;
     SEGGER_RTT_printf(0,"%d\n", avg);
 
     return avg;

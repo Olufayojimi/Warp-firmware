@@ -2544,17 +2544,17 @@ main(void)
 
 				SEGGER_RTT_printf(0,"Calibrate Lower limit");
 				SEGGER_RTT_WaitKey();
-				int lower = takeReading();
+				int lower = takeReading(0);
 
 				SEGGER_RTT_printf(0,"Calibrate Upper limit");
 				SEGGER_RTT_WaitKey();
-				int upper = takeReading();
+				int upper = takeReading(0);
 
 				
 				
 				while (true)
 				{
-					b = (takeReading() - lower) * 94/(upper-lower);
+					b = (takeReading(1) - lower) * 94/(upper-lower);
 					//b = SEGGER_RTT_WaitKey();
 					SEGGER_RTT_printf(0, "\n %d", b);
 					if (b > a)
