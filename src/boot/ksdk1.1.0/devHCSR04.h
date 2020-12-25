@@ -1,1 +1,1 @@
-int takeReading(void);
+int takeReading(int option);
