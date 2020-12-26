@@ -152,7 +152,11 @@ devSSD1331init(void)
 	writeCommand(0x3F);
 
 
+	writeCommand(kSSD1331CommandMASTERCURRENT);
+	writeCommand(0x0F);
 
+	writeCommand(kSSD1331CommandCONTRASTB);
+	writeCommand(0xFF);
 	
 	writeCommand(kSSD1331CommandDRAWRECT);
 	writeCommand(0x00);
