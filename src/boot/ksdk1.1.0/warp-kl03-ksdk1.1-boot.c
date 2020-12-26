@@ -2561,7 +2561,7 @@ main(void)
 						x = battery(b);
 						a = b;
 					}
-					printSensorDataINA219(hexModeFlag);
+					printSensorDataINA219(1);
 				}
 				
 				
