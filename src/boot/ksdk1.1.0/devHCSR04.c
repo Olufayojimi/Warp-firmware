@@ -46,17 +46,17 @@ takeReading(int option)
     {
 
     	GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-		//OSA_TimeDelay(5);
 		OSA_TimeDelay(1);
 
 
-		// Set the trigger pin high for 10 microseconds
+		// Set the trigger pin high for 10 milliseconds
 		GPIO_DRV_SetPinOutput(kHCSR04PinTrig);
 		OSA_TimeDelay(10);
-		//OSA_TimeDelay(1);
 		GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
+
 		uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
+		// Start timing/counting when a goes high
 		while (a == 0) 
 		{
 			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
@@ -75,7 +75,7 @@ takeReading(int option)
     }
 
     int avg = total/loop;
-    SEGGER_RTT_printf(0,"%d\n", avg);
+    //SEGGER_RTT_printf(0,"%d\n", avg);
 
     return avg;
 }

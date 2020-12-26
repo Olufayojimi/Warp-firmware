@@ -2536,12 +2536,12 @@ main(void)
 				SEGGER_RTT_WaitKey();
 				int upper = takeReading(0);
 
-				
-				
+				enableI2Cpins(menuI2cPullupValue);
+
 				while (true)
 				{
 					b = (takeReading(1) - lower) * 94/(upper-lower);
-					SEGGER_RTT_printf(0, "%d\n", b);
+					//SEGGER_RTT_printf(0, "%d\n", b);
 					if (b > a)
 					{
 						if (b >= 94)
@@ -2561,14 +2561,9 @@ main(void)
 						x = battery(b);
 						a = b;
 					}
+					printSensorDataINA219(hexModeFlag);
 				}
-				/*while (true)
-				{
-					int test = battery(67);
-				}*/
 				
-
-				//int test = takeReading();
 				
 				break;
 			}
