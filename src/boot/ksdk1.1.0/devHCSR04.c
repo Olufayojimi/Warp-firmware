@@ -75,7 +75,7 @@ takeReading(int option)
     }
 
     int avg = total/loop;
-    //SEGGER_RTT_printf(0,"%d\n", avg);
+    SEGGER_RTT_printf(0,"%d\n", avg);
 
     return avg;
 }
