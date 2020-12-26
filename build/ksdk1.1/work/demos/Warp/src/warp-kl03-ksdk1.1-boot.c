@@ -2528,6 +2528,8 @@ main(void)
 				int a = 0;
 				int b = 0;
 
+				
+
 				SEGGER_RTT_printf(0,"Calibrate Lower limit\n");
 				SEGGER_RTT_WaitKey();
 				int lower = takeReading(0);
@@ -2535,8 +2537,9 @@ main(void)
 				SEGGER_RTT_printf(0,"Calibrate Upper limit\n");
 				SEGGER_RTT_WaitKey();
 				int upper = takeReading(0);
+				
 
-				enableI2Cpins(menuI2cPullupValue);
+				
 
 				while (true)
 				{
@@ -2561,7 +2564,7 @@ main(void)
 						x = battery(b);
 						a = b;
 					}
-					printSensorDataINA219(1);
+					
 				}
 				
 				
