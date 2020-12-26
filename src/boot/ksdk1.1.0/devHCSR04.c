@@ -55,8 +55,6 @@ takeReading(int option)
 		//OSA_TimeDelay(10);
 		OSA_TimeDelay(1);
 		GPIO_DRV_ClearPinOutput(kHCSR04PinTrig);
-		
-
 		uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
 		while (a == 0) 
@@ -64,12 +62,8 @@ takeReading(int option)
 			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 		}
 
-		
-
     	int counter = 0;
     	
-
-
     	while (a == 1) 
 		{
 			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
@@ -77,11 +71,9 @@ takeReading(int option)
 			
 		}
 
-		
 		total += counter;
-
-		
     }
+    
     int avg = total/loop;
     SEGGER_RTT_printf(0,"%d\n", avg);
 

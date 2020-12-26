@@ -2524,29 +2524,15 @@ main(void)
 
 			case '/':
 			{
-				/*
-				bool hexModeFlag = 1;
-				#ifdef WARP_BUILD_ENABLE_DEVINA219
-				enableI2Cpins(menuI2cPullupValue);
-				for (int i = 0; i < 1000; i++)
-				{
-					printSensorDataINA219(hexModeFlag);
-
-				}
-				#endif
-				break;
-				*/
-				//enableI2Cpins(1000000);
-
 				
 				int a = 0;
 				int b = 0;
 
-				SEGGER_RTT_printf(0,"Calibrate Lower limit");
+				SEGGER_RTT_printf(0,"Calibrate Lower limit\n");
 				SEGGER_RTT_WaitKey();
 				int lower = takeReading(0);
 
-				SEGGER_RTT_printf(0,"Calibrate Upper limit");
+				SEGGER_RTT_printf(0,"Calibrate Upper limit\n");
 				SEGGER_RTT_WaitKey();
 				int upper = takeReading(0);
 
@@ -2555,8 +2541,7 @@ main(void)
 				while (true)
 				{
 					b = (takeReading(1) - lower) * 94/(upper-lower);
-					//b = SEGGER_RTT_WaitKey();
-					SEGGER_RTT_printf(0, "\n %d", b);
+					SEGGER_RTT_printf(0, "%d\n", b);
 					if (b > a)
 					{
 						if (b >= 94)
