@@ -149,6 +149,8 @@ devSSD1331init(void)
 	writeCommand(0x00);
 	writeCommand(0x5F);
 	writeCommand(0x3F);
+
+	// Empty battery display
 	
 	writeCommand(kSSD1331CommandDRAWRECT);
 	writeCommand(0x00);
@@ -236,12 +238,28 @@ battery(int input)
 		writeCommand(0x00);
 		writeCommand(0x00);
 	}
+	else if (input == 0)
+	{
+		//Empty
+		writeCommand(kSSD1331CommandDRAWRECT);
+		writeCommand(0x00);
+		writeCommand(0x00);
+		writeCommand(0x5F);
+		writeCommand(0x3F);
+		writeCommand(0xFF);
+		writeCommand(0xFF);
+		writeCommand(0xFF);
+		writeCommand(0x00);
+		writeCommand(0x00);
+		writeCommand(0x00);
+	}
 
 	return 0;
 }
 
 
 // This function is to allow a smooth transition for a battery level that is reducing
+// A black rectangle will replace the difference in height of the liquid
 int 
 black(int lower, int larger)
 {

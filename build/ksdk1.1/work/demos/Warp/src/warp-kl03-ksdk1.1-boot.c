@@ -1369,12 +1369,8 @@ main(void)
 	 */
 #endif
 
+	// Output an empty battery display on the OLED
 	int output_green = devSSD1331init();
-	//int output_battery = battery();
-
-	// Loop 1000 times for current data
-
-	//currentLoop(1000);
 
 	while (1)
 	{
@@ -1485,7 +1481,7 @@ main(void)
 		SEGGER_RTT_WriteString(0, "\r- 'z': dump all sensors data.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
-		SEGGER_RTT_WriteString(0, "\r- '/': Print 1000 current sensor readings.\n");
+		SEGGER_RTT_WriteString(0, "\r- '/': Water Level Measurement.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\rEnter selection> ");
@@ -2528,23 +2524,22 @@ main(void)
 				int a = 0;
 				int b = 0;
 
-				
+				SEGGER_RTT_printf(0,"Calibrate Upper limit\n");
+				SEGGER_RTT_WaitKey();
+				int upper = takeReading(0);
 
 				SEGGER_RTT_printf(0,"Calibrate Lower limit\n");
 				SEGGER_RTT_WaitKey();
 				int lower = takeReading(0);
 
-				SEGGER_RTT_printf(0,"Calibrate Upper limit\n");
-				SEGGER_RTT_WaitKey();
-				int upper = takeReading(0);
-				
-
-				
-
 				while (true)
 				{
+					// Convert reading to fit the OLED screen
+
 					b = (takeReading(1) - lower) * 94/(upper-lower);
-					//SEGGER_RTT_printf(0, "%d\n", b);
+
+					// Show water level on the OLED screen
+
 					if (b > a)
 					{
 						if (b >= 94)
@@ -2560,14 +2555,19 @@ main(void)
 					}
 					else if (b < a)
 					{
-						int x = black(b, a);
-						x = battery(b);
-						a = b;
-					}
-					
-				}
-				
-				
+						if (b <= 0)
+						{
+							int x = black(0, a);
+							a = 0;
+						}
+						else 
+						{
+							int x = black(b, a);
+							x = battery(b);
+							a = b;
+						}
+					}	
+				}	
 				break;
 			}
 
