@@ -39,7 +39,7 @@ takeReading(int option)
     }
     else
     {
-    	loop = 1;
+    	loop = 5;
     }
 
     for (int i=0; i < loop; i++)
