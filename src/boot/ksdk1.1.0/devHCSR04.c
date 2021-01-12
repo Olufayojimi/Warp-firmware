@@ -56,7 +56,7 @@ takeReading(int option)
 
 		uint32_t a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
 
-		// Start timing/counting when a goes high
+		// Start counting when a goes high
 		while (a == 0) 
 		{
 			a = GPIO_DRV_ReadPinInput(kHCSR04PinEcho);
@@ -74,9 +74,9 @@ takeReading(int option)
 		total += counter;
     }
 
-    int avg = total/loop;
-    SEGGER_RTT_printf(0,"%d\n", avg);
+    int average = total/loop;
+    SEGGER_RTT_printf(0,"%d\n", average);
 
-    return avg;
+    return average;
 }
 
