@@ -2558,6 +2558,7 @@ main(void)
 						if (b <= 0)
 						{
 							int x = black(0, a);
+							x = battery(0)
 							a = 0;
 						}
 						else 

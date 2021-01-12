@@ -242,13 +242,13 @@ battery(int input)
 	{
 		//black
 		writeCommand(kSSD1331CommandDRAWRECT);
-		writeCommand(0x01);
-		writeCommand(0x01);
-		writeCommand(0x5E);
-		writeCommand(0x3E);
 		writeCommand(0x00);
 		writeCommand(0x00);
-		writeCommand(0x00);
+		writeCommand(0x5F);
+		writeCommand(0x3F);
+		writeCommand(0xFF);
+		writeCommand(0xFF);
+		writeCommand(0xFF);
 		writeCommand(0x00);
 		writeCommand(0x00);
 		writeCommand(0x00);
